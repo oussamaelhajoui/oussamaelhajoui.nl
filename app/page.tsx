@@ -88,14 +88,14 @@ export default async function Home() {
                   <span className="h-2.5 w-2.5 rounded-full bg-blue" />
                   <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
                 </div>
-                <span className="font-mono text-[11px] uppercase tracking-[.18em] text-white/45">build / create / improve</span>
+                <span className="font-mono text-[11px] uppercase tracking-[.18em] text-white/65">build / create / improve</span>
               </div>
               <div className="p-6 sm:p-8">
                 <p className="font-mono text-xs uppercase tracking-[.2em] text-cyan">Selected stack</p>
                 <div className="mt-6 grid grid-cols-2 gap-3">
                   {content.stack.map((item, index) => (
                     <div className="stack-tile" key={item}>
-                      <span className="font-mono text-[10px] text-white/35">0{index + 1}</span>
+                      <span className="font-mono text-[10px] text-white/65">0{index + 1}</span>
                       <CodeMark label={item} />
                       <p className="mt-4 text-base font-semibold text-white">{item}</p>
                     </div>

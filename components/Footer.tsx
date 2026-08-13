@@ -15,7 +15,7 @@ export function Footer() {
           <a className="hover:text-cyan" href="/privacy/">Privacy</a>
         </div>
       </div>
-      <div className="site-shell mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 font-mono text-[10px] uppercase tracking-[.14em] text-white/35">
+      <div className="site-shell mt-10 flex flex-wrap justify-between gap-3 border-t border-white/10 pt-6 font-mono text-[10px] uppercase tracking-[.14em] text-white/65">
         <span>© {new Date().getFullYear()} Oussama El Hajoui</span>
         <span>Ontworpen & gebouwd in Nederland</span>
       </div>
