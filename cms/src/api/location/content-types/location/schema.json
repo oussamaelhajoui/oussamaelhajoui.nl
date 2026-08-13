@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "Locatie",
+    "description": "Plaatsen waarvoor lokale dienstpagina's statisch worden gegenereerd"
+  },
+  "options": { "draftAndPublish": true },
+  "pluginOptions": {},
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "province": { "type": "string", "required": true, "default": "Noord-Brabant" },
+    "intro": { "type": "text", "required": true },
+    "localText": { "type": "text", "required": true },
+    "active": { "type": "boolean", "required": true, "default": true },
+    "sortOrder": { "type": "integer", "required": true, "default": 100 }
+  }
+}

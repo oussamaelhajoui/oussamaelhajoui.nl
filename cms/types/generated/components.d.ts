@@ -95,9 +95,14 @@ export interface SharedService extends Struct.ComponentSchema {
   };
   attributes: {
     detail: Schema.Attribute.Text & Schema.Attribute.Required;
+    isWebsiteService: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     items: Schema.Attribute.JSON & Schema.Attribute.Required;
+    landingIntro: Schema.Attribute.Text;
     lead: Schema.Attribute.Text & Schema.Attribute.Required;
     number: Schema.Attribute.String & Schema.Attribute.Required;
+    seoKeyword: Schema.Attribute.String;
+    slug: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

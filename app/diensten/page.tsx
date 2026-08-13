@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/Ui";
-import { getSiteContent } from "@/lib/strapi";
+import { getLocations, getSiteContent } from "@/lib/strapi";
 
 export const metadata: Metadata = {
   title: "Diensten",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function DienstenPage() {
-  const content = await getSiteContent();
+  const [content, locations] = await Promise.all([getSiteContent(), getLocations()]);
 
   return (
     <main>
@@ -55,6 +55,20 @@ export default async function DienstenPage() {
                 <h3 className="text-lg font-semibold">{card.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink-muted">{card.text}</p>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section-pad bg-white">
+        <div className="site-shell">
+          <p className="kicker">Werkgebied</p>
+          <h2 className="section-title mt-5">Website laten maken in jouw plaats.</h2>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">Bekijk de lokale aanpak en alle beschikbare diensten voor jouw regio.</p>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {locations.map((location) => (
+              <a className="panel flex min-h-24 items-center justify-between gap-4 !p-5 font-semibold hover:border-blue hover:text-blue" href={`/website-laten-maken/${location.slug}/`} key={location.slug}>
+                {location.name}<span aria-hidden="true">↗</span>
+              </a>
             ))}
           </div>
         </div>

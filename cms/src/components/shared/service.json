@@ -8,6 +8,13 @@
   "attributes": {
     "number": { "type": "string", "required": true },
     "title": { "type": "string", "required": true },
+    "slug": {
+      "type": "string",
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "seoKeyword": { "type": "string" },
+    "landingIntro": { "type": "text" },
+    "isWebsiteService": { "type": "boolean", "default": false },
     "lead": { "type": "text", "required": true },
     "detail": { "type": "text", "required": true },
     "items": { "type": "json", "required": true }

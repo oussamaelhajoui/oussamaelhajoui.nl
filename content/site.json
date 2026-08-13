@@ -92,7 +92,11 @@
         "Tailwind CSS",
         "Strapi CMS",
         "SEO & performance"
-      ]
+      ],
+      "slug": "websites",
+      "seoKeyword": "Website laten maken",
+      "landingIntro": "Een professionele website die snel laadt, vertrouwen wekt en bezoekers richting contact of aanvraag begeleidt.",
+      "isWebsiteService": true
     },
     {
       "number": "02",
@@ -104,7 +108,11 @@
         "Angular",
         "Design systems",
         "API-integraties"
-      ]
+      ],
+      "slug": "web-apps",
+      "seoKeyword": "Web app laten maken",
+      "landingIntro": "Een gebruiksvriendelijke webapp die complexe processen terugbrengt tot een heldere ervaring voor klanten en teams.",
+      "isWebsiteService": false
     },
     {
       "number": "03",
@@ -116,7 +124,11 @@
         "C# / .NET",
         "REST API's",
         "Integraties"
-      ]
+      ],
+      "slug": "backend-apis",
+      "seoKeyword": "Backend en API laten ontwikkelen",
+      "landingIntro": "Een veilige en onderhoudbare backend met API-koppelingen die passen bij je product, processen en groeiplannen.",
+      "isWebsiteService": false
     },
     {
       "number": "04",
@@ -128,7 +140,11 @@
         "Refactoring",
         "Nieuwe features",
         "Technisch advies"
-      ]
+      ],
+      "slug": "doorontwikkeling",
+      "seoKeyword": "Software laten doorontwikkelen",
+      "landingIntro": "Bestaande software gericht verbeteren met extra functies, een snellere interface en een beter onderhoudbare technische basis.",
+      "isWebsiteService": false
     }
   ],
   "audienceCards": [
@@ -282,5 +298,103 @@
     "tiktokPixelId": "",
     "snapPixelId": ""
   },
+  "locations": [
+    {
+      "name": "Eindhoven",
+      "slug": "eindhoven",
+      "province": "Noord-Brabant",
+      "intro": "Voor ondernemers en organisaties in Eindhoven bouw ik snelle websites die een technisch sterke indruk combineren met een helder verhaal en een duidelijke route naar contact.",
+      "localText": "In een omgeving waar digitale kwaliteit en innovatie vanzelfsprekend zijn, moet je website direct professioneel aanvoelen. Daarom worden ontwerp, inhoud, vindbaarheid en performance vanaf de eerste schets als één geheel behandeld.",
+      "active": true,
+      "sortOrder": 10,
+      "createdAt": "2026-08-13T19:11:15.103Z",
+      "updatedAt": "2026-08-13T19:11:15.103Z",
+      "publishedAt": "2026-08-13T19:11:15.105Z"
+    },
+    {
+      "name": "Nuenen",
+      "slug": "nuenen",
+      "province": "Noord-Brabant",
+      "intro": "Voor bedrijven in Nuenen maak ik herkenbare websites die persoonlijk aanvoelen, snel werken en duidelijk maken waarom klanten juist voor jouw organisatie moeten kiezen.",
+      "localText": "Een sterke lokale reputatie verdient een online presentatie die dezelfde zorg en betrouwbaarheid uitstraalt. Je krijgt korte lijnen, een eigen ontwerp en content die bezoekers helpt om met vertrouwen de volgende stap te zetten.",
+      "active": true,
+      "sortOrder": 20,
+      "createdAt": "2026-08-13T19:11:15.112Z",
+      "updatedAt": "2026-08-13T19:11:15.112Z",
+      "publishedAt": "2026-08-13T19:11:15.114Z"
+    },
+    {
+      "name": "Geldrop",
+      "slug": "geldrop",
+      "province": "Noord-Brabant",
+      "intro": "Voor ondernemers in Geldrop ontwikkel ik moderne websites en weboplossingen die diensten overzichtelijk presenteren en meer passende aanvragen opleveren.",
+      "localText": "Of je klanten vooral uit Geldrop komen of uit de bredere regio: de website moet snel duidelijk maken wat je doet en waarom je betrouwbaar bent. De structuur en techniek worden daarop afgestemd.",
+      "active": true,
+      "sortOrder": 30,
+      "createdAt": "2026-08-13T19:11:15.120Z",
+      "updatedAt": "2026-08-13T19:11:15.120Z",
+      "publishedAt": "2026-08-13T19:11:15.122Z"
+    },
+    {
+      "name": "Best",
+      "slug": "best",
+      "province": "Noord-Brabant",
+      "intro": "Voor bedrijven in Best bouw ik snelle, schaalbare websites die professioneel ogen, prettig werken op mobiel en klaar zijn om mee te groeien met de organisatie.",
+      "localText": "Een goede website ondersteunt zowel lokale zichtbaarheid als verdere groei. Daarom combineer ik een scherpe paginastructuur met technische SEO, sterke prestaties en een CMS dat eenvoudig te beheren blijft.",
+      "active": true,
+      "sortOrder": 40,
+      "createdAt": "2026-08-13T19:11:15.127Z",
+      "updatedAt": "2026-08-13T19:11:15.127Z",
+      "publishedAt": "2026-08-13T19:11:15.129Z"
+    },
+    {
+      "name": "Mierlo",
+      "slug": "mierlo",
+      "province": "Noord-Brabant",
+      "intro": "Voor ondernemers in Mierlo ontwerp en bouw ik websites die dichtbij en persoonlijk voelen, zonder in te leveren op uitstraling, snelheid of technische kwaliteit.",
+      "localText": "Bezoekers willen snel weten wie je bent, wat je aanbiedt en hoe ze contact opnemen. Ik vertaal dat naar een rustige gebruikerservaring met duidelijke keuzes en een overtuigende presentatie.",
+      "active": true,
+      "sortOrder": 50,
+      "createdAt": "2026-08-13T19:11:15.135Z",
+      "updatedAt": "2026-08-13T19:11:15.135Z",
+      "publishedAt": "2026-08-13T19:11:15.137Z"
+    },
+    {
+      "name": "Asten",
+      "slug": "asten",
+      "province": "Noord-Brabant",
+      "intro": "Voor organisaties in Asten maak ik professionele websites die lokale betrokkenheid verbinden met een moderne digitale uitstraling en betrouwbare techniek.",
+      "localText": "Je website moet niet alleen mooi zijn, maar vooral helder uitleggen wat je voor klanten oplost. Daarom staan leesbaarheid, mobiele snelheid en een logische contactroute centraal.",
+      "active": true,
+      "sortOrder": 60,
+      "createdAt": "2026-08-13T19:11:15.142Z",
+      "updatedAt": "2026-08-13T19:11:15.142Z",
+      "publishedAt": "2026-08-13T19:11:15.143Z"
+    },
+    {
+      "name": "Lierop",
+      "slug": "lierop",
+      "province": "Noord-Brabant",
+      "intro": "Voor ondernemers in Lierop bouw ik toegankelijke websites waarmee een lokaal bedrijf professioneel zichtbaar wordt voor klanten binnen én buiten de directe omgeving.",
+      "localText": "Een compacte organisatie heeft baat bij een website die eenvoudig te beheren is en zonder omwegen resultaat ondersteunt. De oplossing blijft overzichtelijk, snel en voorbereid op uitbreiding.",
+      "active": true,
+      "sortOrder": 70,
+      "createdAt": "2026-08-13T19:11:15.150Z",
+      "updatedAt": "2026-08-13T19:11:15.150Z",
+      "publishedAt": "2026-08-13T19:11:15.151Z"
+    },
+    {
+      "name": "Son en Breugel",
+      "slug": "son-en-breugel",
+      "province": "Noord-Brabant",
+      "intro": "Voor bedrijven in Son en Breugel ontwikkel ik onderscheidende websites en weboplossingen met een duidelijke boodschap, snelle laadtijd en professionele uitstraling.",
+      "localText": "De combinatie van lokale herkenbaarheid en de nabijheid van een sterke zakelijke regio vraagt om een website die vertrouwen geeft én ambitie uitstraalt. Ontwerp en techniek worden daarop afgestemd.",
+      "active": true,
+      "sortOrder": 80,
+      "createdAt": "2026-08-13T19:11:15.157Z",
+      "updatedAt": "2026-08-13T19:11:15.157Z",
+      "publishedAt": "2026-08-13T19:11:15.158Z"
+    }
+  ],
   "projects": []
 }

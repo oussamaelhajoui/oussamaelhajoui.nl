@@ -4,6 +4,14 @@ import test from "node:test";
 
 const readPage = (route = "") => readFile(new URL(`../out/${route}index.html`, import.meta.url), "utf8");
 
+const getSnapshot = async () => JSON.parse(
+  await readFile(new URL("../content/site.json", import.meta.url), "utf8"),
+);
+
+const getLandingRoute = (service, location) => service.isWebsiteService
+  ? `website-laten-maken/${location.slug}/`
+  : `diensten/${service.slug}/${location.slug}/`;
+
 test("exporteert echte HTML voor alle hoofdpagina's", async () => {
   const routes = [
     "",
@@ -69,7 +77,7 @@ test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
   assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/over-oussama\//);
   assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/contact\//);
   assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/projecten\//);
-  assert.doesNotMatch(sitemap, /https:\/\/oussamaelhajoui\.nl\/(?:diensten|over|offerte)\//);
+  assert.doesNotMatch(sitemap, /<loc>https:\/\/oussamaelhajoui\.nl\/(?:diensten|over|offerte)\/<\/loc>/);
   assert.match(llms, /^# Oussama El Hajoui/m);
   assert.equal(llmAlias, llms);
   assert.match(tracking, /googletagmanager\.com/);
@@ -79,12 +87,68 @@ test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
   assert.doesNotMatch(tracking, /eval\s*\(/);
 });
 
+test("exporteert iedere Strapi-locatie voor iedere dienst als unieke landingspagina", async () => {
+  const snapshot = await getSnapshot();
+  assert.equal(snapshot.locations.length, 8);
+  assert.equal(snapshot.services.length, 4);
+  assert.equal(snapshot.services.filter((service) => service.isWebsiteService).length, 1);
+
+  const routes = new Set();
+  for (const service of snapshot.services) {
+    assert.match(service.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+    assert.ok(service.seoKeyword);
+    assert.ok(service.landingIntro);
+
+    for (const location of snapshot.locations) {
+      const route = getLandingRoute(service, location);
+      routes.add(route);
+      const html = await readPage(route);
+      const canonical = `https://oussamaelhajoui.nl/${route}`;
+
+      assert.match(html, /<html lang="nl"/);
+      assert.ok(html.includes(location.name));
+      assert.ok(html.includes(service.seoKeyword));
+      assert.ok(html.includes(`rel="canonical" href="${canonical}"`));
+      assert.match(html, /application\/ld\+json/);
+      assert.match(html, /<meta property="og:image"/i);
+      assert.match(html, /<meta name="twitter:card" content="summary_large_image"/i);
+      const externalScripts = html.match(/<script[^>]+src=/gi) ?? [];
+      const stylesheets = html.match(/<link[^>]+rel="stylesheet"/gi) ?? [];
+      assert.ok(externalScripts.length <= 1);
+      assert.ok(externalScripts.every((tag) => tag.includes("/tracking.js")));
+      assert.equal(stylesheets.length, 1);
+      assert.doesNotMatch(html, /localhost:1337|\/api\/locations|\/api\/site-setting/);
+    }
+  }
+
+  assert.equal(routes.size, snapshot.locations.length * snapshot.services.length);
+});
+
+test("neemt alle locatie-landingspagina's op in sitemap en LLM-overzicht", async () => {
+  const [snapshot, sitemap, llms] = await Promise.all([
+    getSnapshot(),
+    readFile(new URL("../out/sitemap.xml", import.meta.url), "utf8"),
+    readFile(new URL("../out/llms.txt", import.meta.url), "utf8"),
+  ]);
+
+  const expectedRoutes = snapshot.services.flatMap((service) => snapshot.locations.map(
+    (location) => getLandingRoute(service, location),
+  ));
+  assert.equal(new Set(expectedRoutes).size, snapshot.services.length * snapshot.locations.length);
+
+  for (const route of expectedRoutes) {
+    const url = `https://oussamaelhajoui.nl/${route}`;
+    assert.ok(sitemap.includes(`<loc>${url}</loc>`));
+    assert.ok(llms.includes(url));
+  }
+});
+
 test("bouwt de Strapi-snapshot in zonder client-side CMS-request", async () => {
   const home = await readPage();
   const services = await readPage("diensten/");
   const process = await readPage("werkwijze/");
   const about = await readPage("over/");
-  const snapshot = JSON.parse(await readFile(new URL("../content/site.json", import.meta.url), "utf8"));
+  const snapshot = await getSnapshot();
   assert.ok(home.includes(snapshot.heroTitle));
   assert.ok(home.includes(snapshot.homeServices[0].title));
   assert.ok(services.includes(snapshot.services[0].lead));
@@ -109,4 +173,19 @@ test("biedt veilige vrije name- en property-metatags via Strapi", async () => {
   assert.match(layout, /<meta property=\{tag\.metaKey\} content=\{tag\.content\}/);
   assert.match(layout, /<meta name=\{tag\.metaKey\} content=\{tag\.content\}/);
   assert.match(layout, /validMetaKey\.test\(tag\.metaKey\)/);
+});
+
+test("beheert locaties en dienst-SEO volledig via Strapi", async () => {
+  const [locationSchema, serviceSchema] = await Promise.all([
+    readFile(new URL("../cms/src/api/location/content-types/location/schema.json", import.meta.url), "utf8").then(JSON.parse),
+    readFile(new URL("../cms/src/components/shared/service.json", import.meta.url), "utf8").then(JSON.parse),
+  ]);
+
+  assert.equal(locationSchema.kind, "collectionType");
+  for (const field of ["name", "slug", "province", "intro", "localText", "active", "sortOrder"]) {
+    assert.ok(locationSchema.attributes[field]);
+  }
+  for (const field of ["slug", "seoKeyword", "landingIntro", "isWebsiteService"]) {
+    assert.ok(serviceSchema.attributes[field]);
+  }
 });

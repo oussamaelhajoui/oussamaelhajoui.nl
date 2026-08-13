@@ -15,6 +15,41 @@ Oussama El Hajoui is een Nederlandse software engineer die snelle websites en we
 - [Privacy](https://oussamaelhajoui.nl/privacy/): Informatie over gegevensverwerking en trackingtoestemming.
 
 
+## Diensten per locatie
+
+- [Website laten maken Eindhoven](https://oussamaelhajoui.nl/website-laten-maken/eindhoven/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Eindhoven](https://oussamaelhajoui.nl/diensten/web-apps/eindhoven/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Eindhoven](https://oussamaelhajoui.nl/diensten/backend-apis/eindhoven/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Eindhoven](https://oussamaelhajoui.nl/diensten/doorontwikkeling/eindhoven/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Nuenen](https://oussamaelhajoui.nl/website-laten-maken/nuenen/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Nuenen](https://oussamaelhajoui.nl/diensten/web-apps/nuenen/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Nuenen](https://oussamaelhajoui.nl/diensten/backend-apis/nuenen/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Nuenen](https://oussamaelhajoui.nl/diensten/doorontwikkeling/nuenen/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Geldrop](https://oussamaelhajoui.nl/website-laten-maken/geldrop/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Geldrop](https://oussamaelhajoui.nl/diensten/web-apps/geldrop/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Geldrop](https://oussamaelhajoui.nl/diensten/backend-apis/geldrop/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Geldrop](https://oussamaelhajoui.nl/diensten/doorontwikkeling/geldrop/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Best](https://oussamaelhajoui.nl/website-laten-maken/best/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Best](https://oussamaelhajoui.nl/diensten/web-apps/best/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Best](https://oussamaelhajoui.nl/diensten/backend-apis/best/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Best](https://oussamaelhajoui.nl/diensten/doorontwikkeling/best/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Mierlo](https://oussamaelhajoui.nl/website-laten-maken/mierlo/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Mierlo](https://oussamaelhajoui.nl/diensten/web-apps/mierlo/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Mierlo](https://oussamaelhajoui.nl/diensten/backend-apis/mierlo/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Mierlo](https://oussamaelhajoui.nl/diensten/doorontwikkeling/mierlo/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Asten](https://oussamaelhajoui.nl/website-laten-maken/asten/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Asten](https://oussamaelhajoui.nl/diensten/web-apps/asten/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Asten](https://oussamaelhajoui.nl/diensten/backend-apis/asten/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Asten](https://oussamaelhajoui.nl/diensten/doorontwikkeling/asten/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Lierop](https://oussamaelhajoui.nl/website-laten-maken/lierop/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Lierop](https://oussamaelhajoui.nl/diensten/web-apps/lierop/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Lierop](https://oussamaelhajoui.nl/diensten/backend-apis/lierop/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Lierop](https://oussamaelhajoui.nl/diensten/doorontwikkeling/lierop/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [Website laten maken Son en Breugel](https://oussamaelhajoui.nl/website-laten-maken/son-en-breugel/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Web app laten maken Son en Breugel](https://oussamaelhajoui.nl/diensten/web-apps/son-en-breugel/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Son en Breugel](https://oussamaelhajoui.nl/diensten/backend-apis/son-en-breugel/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Son en Breugel](https://oussamaelhajoui.nl/diensten/doorontwikkeling/son-en-breugel/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+
 ## Contact
 
 - E-mail: oussamaelhajoui@gmail.com

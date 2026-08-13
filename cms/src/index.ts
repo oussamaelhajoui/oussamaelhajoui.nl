@@ -72,6 +72,10 @@ const defaultContent = {
     {
       number: '01',
       title: 'Websites',
+      slug: 'websites',
+      seoKeyword: 'Website laten maken',
+      landingIntro: 'Een professionele website die snel laadt, vertrouwen wekt en bezoekers richting contact of aanvraag begeleidt.',
+      isWebsiteService: true,
       lead: 'Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.',
       detail: 'Van positionering en paginastructuur tot responsive bouw, technische SEO en CMS-inrichting. Je krijgt geen standaard thema, maar een herkenbare site die past bij jouw bedrijf.',
       items: ['UX & visueel ontwerp', 'Tailwind CSS', 'Strapi CMS', 'SEO & performance'],
@@ -79,6 +83,10 @@ const defaultContent = {
     {
       number: '02',
       title: 'Web apps',
+      slug: 'web-apps',
+      seoKeyword: 'Web app laten maken',
+      landingIntro: 'Een gebruiksvriendelijke webapp die complexe processen terugbrengt tot een heldere ervaring voor klanten en teams.',
+      isWebsiteService: false,
       lead: 'Gebruiksvriendelijke tools voor klanten, teams en complexe processen.',
       detail: 'Ik vertaal workflows naar een heldere interface en schaalbare frontend. Denk aan dashboards, klantportalen, configurators en interne applicaties.',
       items: ['React', 'Angular', 'Design systems', 'API-integraties'],
@@ -86,6 +94,10 @@ const defaultContent = {
     {
       number: '03',
       title: "Backend & API's",
+      slug: 'backend-apis',
+      seoKeyword: 'Backend en API laten ontwikkelen',
+      landingIntro: 'Een veilige en onderhoudbare backend met API-koppelingen die passen bij je product, processen en groeiplannen.',
+      isWebsiteService: false,
       lead: 'Een stevige technische basis waarop je verder kunt bouwen.',
       detail: 'Onderhoudbare services, datamodellen en koppelingen met aandacht voor veiligheid, testbaarheid en heldere verantwoordelijkheden.',
       items: ['Java', 'C# / .NET', "REST API's", 'Integraties'],
@@ -93,6 +105,10 @@ const defaultContent = {
     {
       number: '04',
       title: 'Doorontwikkeling',
+      slug: 'doorontwikkeling',
+      seoKeyword: 'Software laten doorontwikkelen',
+      landingIntro: 'Bestaande software gericht verbeteren met extra functies, een snellere interface en een beter onderhoudbare technische basis.',
+      isWebsiteService: false,
       lead: 'Bestaande software sneller, duidelijker en beter onderhoudbaar maken.',
       detail: 'Ik help bij gerichte performanceverbetering, een nieuw frontend-onderdeel, technische opschoning of het stap voor stap moderniseren van je product.',
       items: ['Performance audit', 'Refactoring', 'Nieuwe features', 'Technisch advies'],
@@ -249,6 +265,81 @@ const defaultContent = {
   },
 };
 
+const defaultLocations = [
+  {
+    name: 'Eindhoven',
+    slug: 'eindhoven',
+    province: 'Noord-Brabant',
+    intro: 'Voor ondernemers en organisaties in Eindhoven bouw ik snelle websites die een technisch sterke indruk combineren met een helder verhaal en een duidelijke route naar contact.',
+    localText: 'In een omgeving waar digitale kwaliteit en innovatie vanzelfsprekend zijn, moet je website direct professioneel aanvoelen. Daarom worden ontwerp, inhoud, vindbaarheid en performance vanaf de eerste schets als één geheel behandeld.',
+    active: true,
+    sortOrder: 10,
+  },
+  {
+    name: 'Nuenen',
+    slug: 'nuenen',
+    province: 'Noord-Brabant',
+    intro: 'Voor bedrijven in Nuenen maak ik herkenbare websites die persoonlijk aanvoelen, snel werken en duidelijk maken waarom klanten juist voor jouw organisatie moeten kiezen.',
+    localText: 'Een sterke lokale reputatie verdient een online presentatie die dezelfde zorg en betrouwbaarheid uitstraalt. Je krijgt korte lijnen, een eigen ontwerp en content die bezoekers helpt om met vertrouwen de volgende stap te zetten.',
+    active: true,
+    sortOrder: 20,
+  },
+  {
+    name: 'Geldrop',
+    slug: 'geldrop',
+    province: 'Noord-Brabant',
+    intro: 'Voor ondernemers in Geldrop ontwikkel ik moderne websites en weboplossingen die diensten overzichtelijk presenteren en meer passende aanvragen opleveren.',
+    localText: 'Of je klanten vooral uit Geldrop komen of uit de bredere regio: de website moet snel duidelijk maken wat je doet en waarom je betrouwbaar bent. De structuur en techniek worden daarop afgestemd.',
+    active: true,
+    sortOrder: 30,
+  },
+  {
+    name: 'Best',
+    slug: 'best',
+    province: 'Noord-Brabant',
+    intro: 'Voor bedrijven in Best bouw ik snelle, schaalbare websites die professioneel ogen, prettig werken op mobiel en klaar zijn om mee te groeien met de organisatie.',
+    localText: 'Een goede website ondersteunt zowel lokale zichtbaarheid als verdere groei. Daarom combineer ik een scherpe paginastructuur met technische SEO, sterke prestaties en een CMS dat eenvoudig te beheren blijft.',
+    active: true,
+    sortOrder: 40,
+  },
+  {
+    name: 'Mierlo',
+    slug: 'mierlo',
+    province: 'Noord-Brabant',
+    intro: 'Voor ondernemers in Mierlo ontwerp en bouw ik websites die dichtbij en persoonlijk voelen, zonder in te leveren op uitstraling, snelheid of technische kwaliteit.',
+    localText: 'Bezoekers willen snel weten wie je bent, wat je aanbiedt en hoe ze contact opnemen. Ik vertaal dat naar een rustige gebruikerservaring met duidelijke keuzes en een overtuigende presentatie.',
+    active: true,
+    sortOrder: 50,
+  },
+  {
+    name: 'Asten',
+    slug: 'asten',
+    province: 'Noord-Brabant',
+    intro: 'Voor organisaties in Asten maak ik professionele websites die lokale betrokkenheid verbinden met een moderne digitale uitstraling en betrouwbare techniek.',
+    localText: 'Je website moet niet alleen mooi zijn, maar vooral helder uitleggen wat je voor klanten oplost. Daarom staan leesbaarheid, mobiele snelheid en een logische contactroute centraal.',
+    active: true,
+    sortOrder: 60,
+  },
+  {
+    name: 'Lierop',
+    slug: 'lierop',
+    province: 'Noord-Brabant',
+    intro: 'Voor ondernemers in Lierop bouw ik toegankelijke websites waarmee een lokaal bedrijf professioneel zichtbaar wordt voor klanten binnen én buiten de directe omgeving.',
+    localText: 'Een compacte organisatie heeft baat bij een website die eenvoudig te beheren is en zonder omwegen resultaat ondersteunt. De oplossing blijft overzichtelijk, snel en voorbereid op uitbreiding.',
+    active: true,
+    sortOrder: 70,
+  },
+  {
+    name: 'Son en Breugel',
+    slug: 'son-en-breugel',
+    province: 'Noord-Brabant',
+    intro: 'Voor bedrijven in Son en Breugel ontwikkel ik onderscheidende websites en weboplossingen met een duidelijke boodschap, snelle laadtijd en professionele uitstraling.',
+    localText: 'De combinatie van lokale herkenbaarheid en de nabijheid van een sterke zakelijke regio vraagt om een website die vertrouwen geeft én ambitie uitstraalt. Ontwerp en techniek worden daarop afgestemd.',
+    active: true,
+    sortOrder: 80,
+  },
+];
+
 function isEmpty(value: unknown) {
   return value == null || value === '';
 }
@@ -280,6 +371,49 @@ const strapiConfig = {
           data: missingContent as never,
         });
       }
+
+      const existingServices = Array.isArray(existing.services) ? existing.services : [];
+      const servicesNeedLandingFields = existingServices.some((service) => {
+        const item = service as Record<string, unknown>;
+        return isEmpty(item.slug) || isEmpty(item.seoKeyword) || isEmpty(item.landingIntro);
+      });
+
+      if (servicesNeedLandingFields) {
+        const defaultsByNumber = new Map(defaultContent.services.map((service) => [service.number, service]));
+        const services = existingServices.map((service) => {
+          const item = Object.fromEntries(
+            Object.entries(service as Record<string, unknown>).filter(([key]) => key !== 'id'),
+          );
+          const fallback = defaultsByNumber.get(String(item.number));
+          if (!fallback) return service;
+          return {
+            ...item,
+            slug: isEmpty(item.slug) ? fallback.slug : item.slug,
+            seoKeyword: isEmpty(item.seoKeyword) ? fallback.seoKeyword : item.seoKeyword,
+            landingIntro: isEmpty(item.landingIntro) ? fallback.landingIntro : item.landingIntro,
+            isWebsiteService: fallback.isWebsiteService,
+          };
+        });
+
+        await strapi.documents(uid).update({
+          documentId: existing.documentId,
+          status: 'published',
+          data: { services } as never,
+        });
+      }
+    }
+
+    const locationUid = 'api::location.location' as const;
+    for (const location of defaultLocations) {
+      const existingLocation = await strapi.db.query(locationUid).findOne({
+        where: { slug: location.slug },
+      });
+      if (!existingLocation) {
+        await strapi.documents(locationUid).create({
+          status: 'published',
+          data: location as never,
+        });
+      }
     }
 
     const publicRole = await strapi.db.query('plugin::users-permissions.role').findOne({
@@ -291,6 +425,8 @@ const strapiConfig = {
         'api::site-setting.site-setting.find',
         'api::project.project.find',
         'api::project.project.findOne',
+        'api::location.location.find',
+        'api::location.location.findOne',
       ];
 
       for (const action of actions) {

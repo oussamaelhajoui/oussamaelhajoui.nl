@@ -20,9 +20,23 @@ export type HomeServiceContent = SummaryCardContent & {
 export type ServiceContent = {
   number: string;
   title: string;
+  slug: string;
+  seoKeyword: string;
+  landingIntro: string;
+  isWebsiteService: boolean;
   lead: string;
   detail: string;
   items: string[];
+};
+
+export type LocationContent = {
+  name: string;
+  slug: string;
+  province: string;
+  intro: string;
+  localText: string;
+  active: boolean;
+  sortOrder: number;
 };
 
 export type ProcessStepContent = SummaryCardContent & {
@@ -116,17 +130,22 @@ export type SiteContent = {
   tracking: TrackingContent;
 };
 
-type SiteSnapshot = SiteContent & { projects: ProjectContent[] };
+type SiteSnapshot = SiteContent & { projects: ProjectContent[]; locations: LocationContent[] };
 
 const fallbackSnapshot = snapshot as SiteSnapshot;
-const { projects: fallbackProjects, ...fallbackContent } = fallbackSnapshot;
+const { projects: fallbackProjects, locations: fallbackLocations, ...fallbackContent } = fallbackSnapshot;
 
 function hasContent(value: unknown) {
   return value != null && value !== "";
 }
 
+function getDevelopmentStrapiUrl() {
+  if (process.env.NODE_ENV === "production") return "";
+  return process.env.STRAPI_URL?.replace(/\/$/, "") ?? "";
+}
+
 export async function getProjects(): Promise<ProjectContent[]> {
-  const baseUrl = process.env.STRAPI_URL?.replace(/\/$/, "");
+  const baseUrl = getDevelopmentStrapiUrl();
   if (!baseUrl) return fallbackProjects;
 
   try {
@@ -154,8 +173,36 @@ export async function getProjects(): Promise<ProjectContent[]> {
   }
 }
 
+export async function getLocations(): Promise<LocationContent[]> {
+  const baseUrl = getDevelopmentStrapiUrl();
+  if (!baseUrl) return fallbackLocations;
+
+  try {
+    const response = await fetch(
+      `${baseUrl}/api/locations?filters[active][$eq]=true&sort=sortOrder:asc&pagination[pageSize]=100`,
+      {
+        headers: process.env.STRAPI_API_TOKEN
+          ? { Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}` }
+          : undefined,
+      },
+    );
+    if (!response.ok) return fallbackLocations;
+
+    const payload = (await response.json()) as { data?: LocationContent[] };
+    return Array.isArray(payload.data) ? payload.data : fallbackLocations;
+  } catch {
+    return fallbackLocations;
+  }
+}
+
+export function getServiceLocationPath(service: ServiceContent, location: LocationContent) {
+  return service.isWebsiteService
+    ? `/website-laten-maken/${location.slug}/`
+    : `/diensten/${service.slug}/${location.slug}/`;
+}
+
 export async function getSiteContent(): Promise<SiteContent> {
-  const baseUrl = process.env.STRAPI_URL?.replace(/\/$/, "");
+  const baseUrl = getDevelopmentStrapiUrl();
   if (!baseUrl) return fallbackContent;
 
   try {

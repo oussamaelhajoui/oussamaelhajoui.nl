@@ -14,7 +14,7 @@ copy .env.example .env.local
 npm run dev
 ```
 
-De website draait op `http://localhost:3000` en leest tijdens development rechtstreeks uit de lokale Strapi-server.
+De website draait op `http://localhost:3000` en leest tijdens development rechtstreeks uit de lokale Strapi-server. Productiebuilds lezen bewust alleen uit de gevalideerde snapshot, zodat iedere GitHub Pages-build reproduceerbaar blijft.
 
 ## Strapi CMS
 
@@ -24,7 +24,7 @@ copy .env.example .env
 npm run develop
 ```
 
-Open daarna `http://localhost:1337/admin` en maak het eerste beheerdersaccount. Het contenttype **Website-instellingen** en de begininhoud worden automatisch aangemaakt.
+Open daarna `http://localhost:1337/admin` (of `http://strapi.local:1337/admin`) en maak het eerste beheerdersaccount. De contenttypes **Website-instellingen**, **Projecten** en **Locaties** en de begininhoud worden automatisch aangemaakt.
 
 Onder **Content Manager → Website-instellingen** beheer je onder andere:
 
@@ -39,6 +39,10 @@ Onder **Content Manager → Website-instellingen** beheer je onder andere:
 - Google Tag Manager, Google tag en pixels voor Meta, TikTok en Snapchat.
 
 Onder **Content Manager → Projecten** voeg je portfolio-items toe. Alleen gepubliceerde projecten verschijnen op de projectenpagina; items met **Uitgelicht** verschijnen ook op de homepage.
+
+Onder **Content Manager → Locaties** beheer je de lokale SEO-landingspagina's. Iedere actieve, gepubliceerde locatie krijgt automatisch een pagina voor iedere geconfigureerde dienst. De beginset bevat Eindhoven, Nuenen, Geldrop, Best, Mierlo, Asten, Lierop en Son en Breugel. Vul per locatie een unieke intro en lokale tekst in; zo blijven de pagina's inhoudelijk relevant en worden het geen dunne kopieën.
+
+De diensten staan als herhaalbaar onderdeel onder **Website-instellingen → Diensten**. Per dienst beheer je de slug, SEO-zoekterm, landingsintro en inhoud. Precies één dienst moet **Website-dienst** ingeschakeld hebben. Die krijgt URL's als `/website-laten-maken/eindhoven/`; overige diensten krijgen URL's als `/diensten/web-apps/eindhoven/`.
 
 Tracking staat standaard uit. Vul onder **Tracking en pixels** alleen de ID's in, zet **Enabled** aan en publiceer. Tags worden pas na toestemming geladen. Gebruik pixels óf beheer ze in Google Tag Manager om dubbele metingen te voorkomen.
 
@@ -67,7 +71,7 @@ git push
 
 GitHub Actions bouwt de statische website uitsluitend uit de gecontroleerde snapshot. Bezoekers maken daardoor geen request naar Strapi.
 
-De synchronisatie werkt ook `robots.txt`, `sitemap.xml`, `llms.txt` en de compatibiliteitsalias `llm.txt` bij. Projectafbeeldingen worden als geoptimaliseerde WebP-bestanden naar de statische site gekopieerd.
+De synchronisatie werkt ook `robots.txt`, `sitemap.xml`, `llms.txt` en de compatibiliteitsalias `llm.txt` bij. Alle combinaties van gepubliceerde locaties en diensten worden daarbij statisch gegenereerd en in de sitemap opgenomen. Projectafbeeldingen worden als geoptimaliseerde WebP-bestanden naar de statische site gekopieerd.
 
 Een push naar `main` publiceert de nieuwe statische versie automatisch.
 
