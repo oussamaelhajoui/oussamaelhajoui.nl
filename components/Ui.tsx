@@ -25,7 +25,7 @@ export function PageHero({ kicker, title, text }: { kicker: string; title: React
 }
 
 export function ArrowLink({ href, children }: { href: string; children: ReactNode }) {
-  return <a className="inline-flex items-center gap-3 font-semibold text-blue hover:underline" href={href}>{children}<span aria-hidden="true">↗</span></a>;
+  return <a className="inline-flex min-h-11 items-center gap-3 font-semibold text-blue hover:underline" href={href}>{children}<span aria-hidden="true">↗</span></a>;
 }
 
 export function CodeMark({ label }: { label: string }) {

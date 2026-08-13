@@ -28,7 +28,7 @@ export function Header() {
         </div>
         <details className="mobile-menu relative lg:hidden">
           <summary className="cursor-pointer list-none rounded-full border border-navy/15 px-4 py-2 text-sm font-bold">Menu</summary>
-          <nav className="absolute right-0 top-14 grid w-64 gap-1 rounded-2xl border border-navy/10 bg-white p-3 shadow-2xl" aria-label="Mobiele navigatie">
+          <nav className="absolute right-0 top-14 grid gap-1 rounded-2xl border border-navy/10 bg-white p-3 shadow-2xl" aria-label="Mobiele navigatie">
             {nav.map(([label, href]) => (
               <a className="rounded-xl px-4 py-3 text-sm font-semibold hover:bg-mist" href={href} key={href}>{label}</a>
             ))}

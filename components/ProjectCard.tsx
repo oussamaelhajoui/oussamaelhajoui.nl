@@ -29,7 +29,7 @@ export function ProjectCard({ project }: { project: ProjectContent }) {
         </div>
       )}
       {projectUrl && (
-        <a className="mt-8 inline-flex font-semibold text-blue hover:underline" href={projectUrl} rel="noreferrer" target="_blank">
+        <a className="mt-8 inline-flex min-h-11 items-center font-semibold text-blue hover:underline" href={projectUrl} rel="noreferrer" target="_blank">
           Bekijk project <span className="ml-2" aria-hidden="true">↗</span>
         </a>
       )}

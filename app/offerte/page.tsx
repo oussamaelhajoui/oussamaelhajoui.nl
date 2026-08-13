@@ -35,7 +35,7 @@ export default async function OffertePage() {
             </ol>
             <div className="mt-10 rounded-2xl bg-mist p-6">
               <p className="text-sm font-semibold text-navy">Liever direct mailen?</p>
-              <a className="mt-2 block break-all text-sm text-blue underline" href={`mailto:${quoteEmail}`}>{quoteEmail}</a>
+              <a className="mt-1 inline-flex min-h-11 items-center break-all text-sm text-blue underline" href={`mailto:${quoteEmail}`}>{quoteEmail}</a>
             </div>
           </aside>
 
@@ -90,7 +90,7 @@ export default async function OffertePage() {
               <textarea className="quote-input" name="project" required placeholder="Wat wil je bereiken, voor wie en wat moet er gebouwd worden?" />
             </label>
             <label className="flex items-start gap-3 text-sm leading-6 text-ink-muted">
-              <input className="mt-1 h-4 w-4 accent-blue" type="checkbox" name="privacy-akkoord" required />
+              <input className="mt-0.5 h-5 w-5 shrink-0 accent-blue" type="checkbox" name="privacy-akkoord" required />
               <span>Ik ga ermee akkoord dat mijn gegevens worden gebruikt om op deze aanvraag te reageren. Lees het <a className="text-blue underline" href="/privacy/">privacybeleid</a>.</span>
             </label>
             <button className="button button-primary w-full sm:w-fit" type="submit">Verstuur aanvraag <span aria-hidden="true">↗</span></button>
