@@ -5,7 +5,16 @@ import test from "node:test";
 const readPage = (route = "") => readFile(new URL(`../out/${route}index.html`, import.meta.url), "utf8");
 
 test("exporteert echte HTML voor alle hoofdpagina's", async () => {
-  const routes = ["", "diensten/", "projecten/", "werkwijze/", "over/", "offerte/", "privacy/", "bedankt/"];
+  const routes = [
+    "",
+    "online-diensten/",
+    "over-oussama/",
+    "contact/",
+    "projecten/",
+    "werkwijze/",
+    "privacy/",
+    "bedankt/",
+  ];
   for (const route of routes) {
     const html = await readPage(route);
     assert.match(html, /<html lang="nl"/);
@@ -16,7 +25,7 @@ test("exporteert echte HTML voor alle hoofdpagina's", async () => {
 
 test("bevat SEO, toegankelijkheid en het offerteformulier", async () => {
   const home = await readPage();
-  const quote = await readPage("offerte/");
+  const quote = await readPage("contact/");
   assert.match(home, /application\/ld\+json/);
   assert.match(home, /<meta charSet="utf-8"/i);
   assert.match(home, /<meta name="viewport"/i);
@@ -56,7 +65,11 @@ test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
   ]);
   assert.match(robots, /User-agent: \*/);
   assert.match(robots, /Sitemap: https:\/\/oussamaelhajoui\.nl\/sitemap\.xml/);
+  assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/online-diensten\//);
+  assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/over-oussama\//);
+  assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/contact\//);
   assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/projecten\//);
+  assert.doesNotMatch(sitemap, /https:\/\/oussamaelhajoui\.nl\/(?:diensten|over|offerte)\//);
   assert.match(llms, /^# Oussama El Hajoui/m);
   assert.equal(llmAlias, llms);
   assert.match(tracking, /googletagmanager\.com/);

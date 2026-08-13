@@ -33,7 +33,7 @@ export default async function ProjectenPage() {
               <p className="mx-auto mt-4 max-w-xl leading-7 text-ink-muted">
                 Wil je ondertussen weten wat ik voor jouw website of web app kan betekenen? Vertel me kort over je idee.
               </p>
-              <a className="button button-primary mt-8" href="/offerte/">Bespreek je project</a>
+              <a className="button button-primary mt-8" href="/contact/">Bespreek je project</a>
             </div>
           )}
         </div>

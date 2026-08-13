@@ -6,7 +6,8 @@ import { getSiteContent } from "@/lib/strapi";
 export const metadata: Metadata = {
   title: "Over mij",
   description: "Maak kennis met Oussama El Hajoui, software engineer gespecialiseerd in websites, web apps, React, Angular, Java en C#.",
-  alternates: { canonical: "/over/" },
+  alternates: { canonical: "/over-oussama/" },
+  robots: { index: false, follow: true },
 };
 
 export default async function OverPage() {
@@ -39,7 +40,7 @@ export default async function OverPage() {
             <div className="mt-10 space-y-6 text-lg leading-8 text-ink-muted">
               {content.aboutParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             </div>
-            <a className="button button-primary mt-10" href="/offerte/">Kennismaken <span aria-hidden="true">↗</span></a>
+            <a className="button button-primary mt-10" href="/contact/">Kennismaken <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>

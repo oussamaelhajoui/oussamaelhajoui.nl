@@ -6,7 +6,8 @@ import { getSiteContent } from "@/lib/strapi";
 export const metadata: Metadata = {
   title: "Diensten",
   description: "Websites, web apps en backend development met React, Angular, Java, C#, Tailwind CSS en Strapi.",
-  alternates: { canonical: "/diensten/" },
+  alternates: { canonical: "/online-diensten/" },
+  robots: { index: false, follow: true },
 };
 
 export default async function DienstenPage() {

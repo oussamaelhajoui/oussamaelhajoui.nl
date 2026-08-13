@@ -22,10 +22,11 @@ export function Footer({ tagline, contact, trackingEnabled }: { tagline: string;
           </div>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70">
-          <a className="hover:text-cyan" href="/diensten/">Diensten</a>
+          <a className="hover:text-cyan" href="/online-diensten/">Online diensten</a>
           <a className="hover:text-cyan" href="/projecten/">Projecten</a>
           <a className="hover:text-cyan" href="/werkwijze/">Werkwijze</a>
-          <a className="hover:text-cyan" href="/over/">Over mij</a>
+          <a className="hover:text-cyan" href="/over-oussama/">Over Oussama</a>
+          <a className="hover:text-cyan" href="/contact/">Contact</a>
           <a className="hover:text-cyan" href="/privacy/">Privacy</a>
           {trackingEnabled && <button className="cursor-pointer border-0 bg-transparent p-0 text-white/70 hover:text-cyan" data-consent-settings type="button">Cookievoorkeuren</button>}
         </div>

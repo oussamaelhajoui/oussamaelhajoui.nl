@@ -112,11 +112,11 @@ ${data.siteName} is een Nederlandse software engineer die snelle websites en web
 ## Belangrijkste pagina's
 
 - [Home](https://oussamaelhajoui.nl/): Overzicht van expertise, diensten en beschikbaarheid.
-- [Diensten](https://oussamaelhajoui.nl/diensten/): Websites, web apps, backends, API's en doorontwikkeling.
+- [Online diensten](https://oussamaelhajoui.nl/online-diensten/): Websites, web apps, backends, API's en doorontwikkeling.
 - [Projecten](https://oussamaelhajoui.nl/projecten/): Gepubliceerde portfolio-projecten en gebruikte technologieën.
 - [Werkwijze](https://oussamaelhajoui.nl/werkwijze/): Het proces van kennismaking tot livegang.
-- [Over mij](https://oussamaelhajoui.nl/over/): Achtergrond, technische expertise en samenwerkingsstijl.
-- [Offerte aanvragen](https://oussamaelhajoui.nl/offerte/): Contact- en offerteformulier voor nieuwe projecten.
+- [Over Oussama](https://oussamaelhajoui.nl/over-oussama/): Achtergrond, technische expertise en samenwerkingsstijl.
+- [Contact](https://oussamaelhajoui.nl/contact/): Contact- en offerteformulier voor nieuwe projecten.
 - [Privacy](https://oussamaelhajoui.nl/privacy/): Informatie over gegevensverwerking en trackingtoestemming.
 ${projects.map((project) => `- [${project.title}](https://oussamaelhajoui.nl/projecten/): ${project.summary}`).join("\n")}
 
@@ -128,17 +128,23 @@ ${projects.map((project) => `- [${project.title}](https://oussamaelhajoui.nl/pro
 
 const sitemapUrls = [
   ["/", "1.0"],
-  ["/diensten/", "0.9"],
+  ["/online-diensten/", "0.9"],
+  ["/over-oussama/", "0.9"],
+  ["/contact/", "0.9"],
   ["/projecten/", "0.9"],
   ["/werkwijze/", "0.8"],
-  ["/over/", "0.8"],
-  ["/offerte/", "0.9"],
   ["/privacy/", "0.3"],
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapUrls.map(([path, priority]) => `  <url><loc>https://oussamaelhajoui.nl${path}</loc><priority>${priority}</priority></url>`).join("\n")}
 </urlset>
+`;
+const robots = `User-agent: *
+Allow: /
+Disallow: /bedankt/
+
+Sitemap: https://oussamaelhajoui.nl/sitemap.xml
 `;
 
 await mkdir(dirname(destination), { recursive: true });
@@ -148,6 +154,7 @@ await Promise.all([
   writeFile(resolve(publicDirectory, "llms.txt"), llmsText, "utf8"),
   writeFile(resolve(publicDirectory, "llm.txt"), llmsText, "utf8"),
   writeFile(resolve(publicDirectory, "sitemap.xml"), sitemap, "utf8"),
+  writeFile(resolve(publicDirectory, "robots.txt"), robots, "utf8"),
 ]);
 
 console.log(`Publieke Strapi-content en discoverybestanden bijgewerkt vanuit ${strapiUrl}`);

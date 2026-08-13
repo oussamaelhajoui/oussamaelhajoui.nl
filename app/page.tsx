@@ -32,10 +32,10 @@ export default async function Home() {
               {content.heroText}
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <a className="button button-primary" href="/offerte/">
+              <a className="button button-primary" href="/contact/">
                 Bespreek je project <span aria-hidden="true">↗</span>
               </a>
-              <a className="button button-ghost" href="/diensten/">
+              <a className="button button-ghost" href="/online-diensten/">
                 Bekijk mijn diensten
               </a>
             </div>
@@ -110,7 +110,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="mt-10 flex justify-end">
-            <ArrowLink href="/diensten/">Alle mogelijkheden bekijken</ArrowLink>
+            <ArrowLink href="/online-diensten/">Alle mogelijkheden bekijken</ArrowLink>
           </div>
         </div>
       </section>

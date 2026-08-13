@@ -2,6 +2,8 @@
 
 Persoonlijke website van Oussama El Hajoui. De frontend is een statische, multi-page Next.js-export met Tailwind CSS. Strapi 5 is de headless CMS-laag; GitHub Actions bouwt en publiceert de statische HTML naar GitHub Pages.
 
+De primaire pagina's zijn **Home** (`/`), **Online diensten** (`/online-diensten/`), **Over Oussama** (`/over-oussama/`) en **Contact** (`/contact/`). Portfolio, werkwijze en privacy blijven als aanvullende pagina's beschikbaar.
+
 ## Lokaal starten
 
 Vereist Node.js 22.

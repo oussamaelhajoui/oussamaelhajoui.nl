@@ -5,7 +5,8 @@ import { getSiteContent } from "@/lib/strapi";
 export const metadata: Metadata = {
   title: "Offerte aanvragen",
   description: "Vertel kort over je website of web app en ontvang persoonlijk een vrijblijvende reactie van Oussama El Hajoui.",
-  alternates: { canonical: "/offerte/" },
+  alternates: { canonical: "/contact/" },
+  robots: { index: false, follow: true },
 };
 
 export default async function OffertePage() {
