@@ -41,6 +41,17 @@ test("exporteert echte HTML voor alle hoofdpagina's", async () => {
   }
 });
 
+test("bouwt het desktop- en mobiele dienstenmenu uit Strapi-content", async () => {
+  const [home, snapshot] = await Promise.all([readPage(), getSnapshot()]);
+
+  assert.match(home, /class="mega-menu"/);
+  assert.match(home, /class="mobile-services/);
+  for (const service of snapshot.services) {
+    const href = `/online-diensten/#${service.slug}`;
+    assert.equal(home.split(href).length - 1, 2, `${service.title} ontbreekt in desktop of mobiel menu`);
+  }
+});
+
 test("bevat SEO, toegankelijkheid en het offerteformulier", async () => {
   const home = await readPage();
   const quote = await readPage("contact/");

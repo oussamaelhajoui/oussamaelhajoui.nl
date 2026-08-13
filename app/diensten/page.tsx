@@ -23,7 +23,7 @@ export default async function DienstenPage() {
       <section className="section-pad bg-white">
         <div className="site-shell divide-y divide-navy/15">
           {content.services.map((service) => (
-            <article className="grid gap-8 py-12 first:pt-0 last:pb-0 lg:grid-cols-[90px_1fr_1.1fr]" key={service.number}>
+            <article id={service.slug} className="grid scroll-mt-28 gap-8 py-12 first:pt-0 last:pb-0 lg:grid-cols-[90px_1fr_1.1fr]" key={service.number}>
               <span className="font-mono text-xs text-blue">{service.number}</span>
               <div>
                 <h2 className="text-3xl font-semibold tracking-[-.045em] text-navy sm:text-4xl">{service.title}</h2>

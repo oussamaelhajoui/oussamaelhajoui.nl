@@ -85,10 +85,22 @@ button, input, select, textarea { font: inherit; }
 textarea.quote-input { min-height: 150px; resize: vertical; }
 .skip-link { position: fixed; z-index: 100; left: 1rem; top: -5rem; border-radius: .5rem; background: white; padding: .8rem 1rem; color: #07172f; box-shadow: 0 8px 25px rgb(0 0 0 / .2); }
 .skip-link:focus { top: 1rem; }
-.mobile-menu summary { display: flex; min-height: 44px; align-items: center; justify-content: center; }
-.mobile-menu > nav { width: min(16rem, calc(100vw - 2rem)); max-height: calc(100vh - 6rem); max-height: calc(100dvh - 6rem); overflow-y: auto; overscroll-behavior: contain; }
-.mobile-menu[open] summary { color: #075ac9; }
-.mobile-menu summary::-webkit-details-marker { display: none; }
+.mega-menu > summary, .mobile-menu > summary, .mobile-services > summary { list-style: none; }
+.mega-menu > summary::-webkit-details-marker, .mobile-menu > summary::-webkit-details-marker, .mobile-services > summary::-webkit-details-marker { display: none; }
+.menu-chevron { flex: none; transition: transform .18s ease; }
+.mega-menu[open] > summary, .mobile-services[open] > summary { color: #075ac9; }
+.mega-menu[open] > summary .menu-chevron, .mobile-services[open] > summary .menu-chevron { transform: rotate(180deg); }
+.mobile-menu > summary { display: flex; min-height: 44px; align-items: center; justify-content: center; }
+.mobile-menu > nav { width: min(23rem, calc(100vw - 1.5rem)); max-height: calc(100vh - 6rem); max-height: calc(100dvh - 6rem); overflow-y: auto; overscroll-behavior: contain; }
+.mobile-menu[open] > summary { color: #075ac9; }
+.menu-close-icon { display: none !important; }
+.mobile-menu[open] > summary .menu-open-icon { display: none !important; }
+.mobile-menu[open] > summary .menu-close-icon { display: block !important; }
+.mega-menu-panel { transform-origin: top center; animation: mega-menu-in .16s ease-out; }
+@keyframes mega-menu-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .consent-panel { position: fixed; z-index: 90; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); left: 1rem; display: grid; gap: 1.25rem; align-items: end; border: 1px solid rgb(7 23 47 / .16); border-radius: 1.5rem; background: rgb(255 255 255 / .98); padding: 1.25rem; box-shadow: 0 24px 80px rgb(7 23 47 / .2); }
 .consent-panel[hidden] { display: none; }
 
