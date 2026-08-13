@@ -27,14 +27,14 @@ export async function generateMetadata({ params }: ServiceLocationPageProps): Pr
   const location = locations.find((item) => item.slug === locationSlug);
   if (!service || !location) notFound();
 
-  const title = `${service.seoKeyword} ${location.name}`;
+  const title = `${service.seoKeyword} in ${location.name}`;
   const description = `${service.seoKeyword} in ${location.name}? ${service.lead} Rechtstreeks samenwerken met software engineer Oussama El Hajoui.`;
   const path = getServiceLocationPath(service, location);
 
   return {
     title,
     description,
-    keywords: [`${service.seoKeyword} ${location.name}`, `${service.title} ${location.name}`, `software engineer ${location.name}`],
+    keywords: [service.seoKeyword, ...service.searchTerms, service.title].map((term) => `${term} ${location.name}`),
     alternates: { canonical: path },
     openGraph: {
       type: "website",
@@ -61,13 +61,31 @@ export default async function ServiceLocationPage({ params }: ServiceLocationPag
   const otherLocations = locations.filter((item) => item.slug !== location.slug);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${service.seoKeyword} in ${location.name}`,
-    serviceType: service.title,
-    description: service.landingIntro,
-    url: `${siteUrl}${path}`,
-    provider: { "@type": "Person", name: content.siteName, url: siteUrl },
-    areaServed: { "@type": "City", name: location.name },
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}${path}#service`,
+        name: `${service.seoKeyword} in ${location.name}`,
+        serviceType: service.title,
+        description: service.landingIntro,
+        url: `${siteUrl}${path}`,
+        provider: { "@id": `${siteUrl}/#business` },
+        areaServed: {
+          "@type": "City",
+          name: location.name,
+          containedInPlace: { "@type": "AdministrativeArea", name: location.province },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${siteUrl}${path}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Online diensten", item: `${siteUrl}/online-diensten/` },
+          { "@type": "ListItem", position: 3, name: `${service.title} in ${location.name}`, item: `${siteUrl}${path}` },
+        ],
+      },
+    ],
   };
 
   return (
@@ -92,10 +110,10 @@ export default async function ServiceLocationPage({ params }: ServiceLocationPag
         <div className="site-shell grid gap-12 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
           <div>
             <p className="kicker">Van vraag naar werkende oplossing</p>
-            <h2 className="section-title mt-5">Gericht gebouwd voor jouw organisatie.</h2>
+            <h2 className="section-title mt-5">{service.title} met een duidelijke aanpak.</h2>
             <div className="mt-8 max-w-3xl space-y-6 text-lg leading-8 text-ink-muted">
               <p>{service.detail}</p>
-              <p>{location.localText}</p>
+              <p>{location.regionalContext}</p>
             </div>
             <a className="button button-primary mt-10" href="/contact/">Bespreek je project <span aria-hidden="true">↗</span></a>
           </div>
@@ -124,7 +142,7 @@ export default async function ServiceLocationPage({ params }: ServiceLocationPag
                 <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p className="mt-4 flex-1 leading-7 text-ink-muted">{item.lead}</p>
                 <a className="mt-6 inline-flex min-h-11 items-center font-semibold text-blue hover:underline" href={getServiceLocationPath(item, location)}>
-                  Bekijk voor {location.name} <span className="ml-2" aria-hidden="true">↗</span>
+                  {item.seoKeyword} in {location.name} <span className="ml-2" aria-hidden="true">↗</span>
                 </a>
               </article>
             ))}

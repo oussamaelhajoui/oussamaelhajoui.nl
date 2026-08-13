@@ -15,6 +15,7 @@
     "province": { "type": "string", "required": true, "default": "Noord-Brabant" },
     "intro": { "type": "text", "required": true },
     "localText": { "type": "text", "required": true },
+    "regionalContext": { "type": "text" },
     "active": { "type": "boolean", "required": true, "default": true },
     "sortOrder": { "type": "integer", "required": true, "default": 100 }
   }

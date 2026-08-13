@@ -13,6 +13,7 @@
       "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "seoKeyword": { "type": "string" },
+    "searchTerms": { "type": "json" },
     "landingIntro": { "type": "text" },
     "isWebsiteService": { "type": "boolean", "default": false },
     "lead": { "type": "text", "required": true },

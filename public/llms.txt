@@ -1,13 +1,13 @@
 # Oussama El Hajoui
 
-> Snelle websites en web apps met React, Angular, Java en C#. Rechtstreeks samenwerken met software engineer Oussama El Hajoui.
+> Websites en webshops laten maken in Eindhoven en omgeving. Met WordPress, Shopify, React, Angular, Java, C# en persoonlijke begeleiding.
 
-Oussama El Hajoui is een Nederlandse software engineer die snelle websites en webapplicaties ontwerpt en ontwikkelt met React, Angular, Java, C#, Tailwind CSS en Strapi.
+Oussama El Hajoui is een software engineer uit de regio Eindhoven voor websites, WordPress, Shopify-webshops, Liquid-maatwerk, webapplicaties, backends, AI-training, security-assessments en technisch projectleiderschap.
 
 ## Belangrijkste pagina's
 
 - [Home](https://oussamaelhajoui.nl/): Overzicht van expertise, diensten en beschikbaarheid.
-- [Online diensten](https://oussamaelhajoui.nl/online-diensten/): Websites, web apps, backends, API's en doorontwikkeling.
+- [Online diensten](https://oussamaelhajoui.nl/online-diensten/): Websites & WordPress, Webshops & e-commerce, Web apps, Backend & API's, Doorontwikkeling, AI-training & gastlessen, Security-assessments & pentests, Technisch project- & teamleiderschap.
 - [Projecten](https://oussamaelhajoui.nl/projecten/): Gepubliceerde portfolio-projecten en gebruikte technologieën.
 - [Werkwijze](https://oussamaelhajoui.nl/werkwijze/): Het proces van kennismaking tot livegang.
 - [Over Oussama](https://oussamaelhajoui.nl/over-oussama/): Achtergrond, technische expertise en samenwerkingsstijl.
@@ -18,37 +18,69 @@ Oussama El Hajoui is een Nederlandse software engineer die snelle websites en we
 ## Diensten per locatie
 
 - [Website laten maken Eindhoven](https://oussamaelhajoui.nl/website-laten-maken/eindhoven/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Eindhoven](https://oussamaelhajoui.nl/diensten/webshops/eindhoven/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Eindhoven](https://oussamaelhajoui.nl/diensten/web-apps/eindhoven/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Eindhoven](https://oussamaelhajoui.nl/diensten/backend-apis/eindhoven/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Eindhoven](https://oussamaelhajoui.nl/diensten/doorontwikkeling/eindhoven/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Eindhoven](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/eindhoven/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Eindhoven](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/eindhoven/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Eindhoven](https://oussamaelhajoui.nl/diensten/technisch-projectleider/eindhoven/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Nuenen](https://oussamaelhajoui.nl/website-laten-maken/nuenen/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Nuenen](https://oussamaelhajoui.nl/diensten/webshops/nuenen/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Nuenen](https://oussamaelhajoui.nl/diensten/web-apps/nuenen/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Nuenen](https://oussamaelhajoui.nl/diensten/backend-apis/nuenen/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Nuenen](https://oussamaelhajoui.nl/diensten/doorontwikkeling/nuenen/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Nuenen](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/nuenen/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Nuenen](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/nuenen/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Nuenen](https://oussamaelhajoui.nl/diensten/technisch-projectleider/nuenen/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Geldrop](https://oussamaelhajoui.nl/website-laten-maken/geldrop/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Geldrop](https://oussamaelhajoui.nl/diensten/webshops/geldrop/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Geldrop](https://oussamaelhajoui.nl/diensten/web-apps/geldrop/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Geldrop](https://oussamaelhajoui.nl/diensten/backend-apis/geldrop/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Geldrop](https://oussamaelhajoui.nl/diensten/doorontwikkeling/geldrop/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Geldrop](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/geldrop/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Geldrop](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/geldrop/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Geldrop](https://oussamaelhajoui.nl/diensten/technisch-projectleider/geldrop/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Best](https://oussamaelhajoui.nl/website-laten-maken/best/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Best](https://oussamaelhajoui.nl/diensten/webshops/best/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Best](https://oussamaelhajoui.nl/diensten/web-apps/best/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Best](https://oussamaelhajoui.nl/diensten/backend-apis/best/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Best](https://oussamaelhajoui.nl/diensten/doorontwikkeling/best/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Best](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/best/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Best](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/best/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Best](https://oussamaelhajoui.nl/diensten/technisch-projectleider/best/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Mierlo](https://oussamaelhajoui.nl/website-laten-maken/mierlo/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Mierlo](https://oussamaelhajoui.nl/diensten/webshops/mierlo/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Mierlo](https://oussamaelhajoui.nl/diensten/web-apps/mierlo/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Mierlo](https://oussamaelhajoui.nl/diensten/backend-apis/mierlo/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Mierlo](https://oussamaelhajoui.nl/diensten/doorontwikkeling/mierlo/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Mierlo](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/mierlo/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Mierlo](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/mierlo/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Mierlo](https://oussamaelhajoui.nl/diensten/technisch-projectleider/mierlo/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Asten](https://oussamaelhajoui.nl/website-laten-maken/asten/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Asten](https://oussamaelhajoui.nl/diensten/webshops/asten/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Asten](https://oussamaelhajoui.nl/diensten/web-apps/asten/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Asten](https://oussamaelhajoui.nl/diensten/backend-apis/asten/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Asten](https://oussamaelhajoui.nl/diensten/doorontwikkeling/asten/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Asten](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/asten/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Asten](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/asten/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Asten](https://oussamaelhajoui.nl/diensten/technisch-projectleider/asten/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Lierop](https://oussamaelhajoui.nl/website-laten-maken/lierop/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Lierop](https://oussamaelhajoui.nl/diensten/webshops/lierop/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Lierop](https://oussamaelhajoui.nl/diensten/web-apps/lierop/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Lierop](https://oussamaelhajoui.nl/diensten/backend-apis/lierop/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Lierop](https://oussamaelhajoui.nl/diensten/doorontwikkeling/lierop/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Lierop](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/lierop/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Lierop](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/lierop/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Lierop](https://oussamaelhajoui.nl/diensten/technisch-projectleider/lierop/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Son en Breugel](https://oussamaelhajoui.nl/website-laten-maken/son-en-breugel/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Son en Breugel](https://oussamaelhajoui.nl/diensten/webshops/son-en-breugel/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Son en Breugel](https://oussamaelhajoui.nl/diensten/web-apps/son-en-breugel/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
 - [Backend en API laten ontwikkelen Son en Breugel](https://oussamaelhajoui.nl/diensten/backend-apis/son-en-breugel/): Een stevige technische basis waarop je verder kunt bouwen.
 - [Software laten doorontwikkelen Son en Breugel](https://oussamaelhajoui.nl/diensten/doorontwikkeling/son-en-breugel/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Son en Breugel](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/son-en-breugel/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Son en Breugel](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/son-en-breugel/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Son en Breugel](https://oussamaelhajoui.nl/diensten/technisch-projectleider/son-en-breugel/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 
 ## Contact
 

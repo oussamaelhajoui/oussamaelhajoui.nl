@@ -7,7 +7,7 @@ export function CtaBand({ content }: { content: CallToActionContent }) {
         <div>
           <p className="kicker text-white">{content.kicker}</p>
           <h2 className="section-title mt-5 max-w-4xl text-white">{content.title}</h2>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">{content.text}</p>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-white/90">{content.text}</p>
         </div>
         <a className="button button-light lg:mb-2" href="/contact/">{content.buttonLabel} <span aria-hidden="true">↗</span></a>
       </div>

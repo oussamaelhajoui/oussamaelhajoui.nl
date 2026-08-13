@@ -12,6 +12,16 @@ const getLandingRoute = (service, location) => service.isWebsiteService
   ? `website-laten-maken/${location.slug}/`
   : `diensten/${service.slug}/${location.slug}/`;
 
+const textContent = (html) => html
+  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+  .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+  .replace(/<!--\s*-->/g, "")
+  .replace(/<[^>]+>/g, " ")
+  .replace(/&amp;/g, "&")
+  .replace(/&#x27;/g, "'")
+  .replace(/\s+/g, " ")
+  .trim();
+
 test("exporteert echte HTML voor alle hoofdpagina's", async () => {
   const routes = [
     "",
@@ -63,6 +73,43 @@ test("bevat SEO, toegankelijkheid en het offerteformulier", async () => {
   assert.match(quote, /type="email"/);
 });
 
+test("bevat complete en unieke SEO-meta op iedere indexeerbare pagina", async () => {
+  const sitemap = await readFile(new URL("../out/sitemap.xml", import.meta.url), "utf8");
+  const paths = [...sitemap.matchAll(/<loc>https:\/\/oussamaelhajoui\.nl(.*?)<\/loc>/g)].map((match) => match[1]);
+  const titles = new Set();
+  const descriptions = new Set();
+
+  assert.equal(paths.length, 71);
+  for (const path of paths) {
+    const route = path === "/" ? "" : path.replace(/^\//, "");
+    const html = await readPage(route);
+    const title = html.match(/<title>(.*?)<\/title>/i)?.[1];
+    const description = html.match(/<meta name="description" content="([^"]+)"/i)?.[1];
+
+    assert.ok(title, `Titel ontbreekt voor ${path}`);
+    assert.ok(description, `Description ontbreekt voor ${path}`);
+    assert.ok(html.includes(`rel="canonical" href="https://oussamaelhajoui.nl${path}"`), `Canonical ontbreekt voor ${path}`);
+    assert.match(html, /<meta name="robots"/i);
+    assert.match(html, /<meta name="googlebot"/i);
+    assert.match(html, /<meta property="og:title"/i);
+    assert.match(html, /<meta property="og:description"/i);
+    assert.match(html, /<meta property="og:image"/i);
+    assert.match(html, /<meta name="twitter:card" content="summary_large_image"/i);
+    assert.match(html, /<meta name="twitter:title"/i);
+    assert.match(html, /<meta name="twitter:description"/i);
+    assert.match(html, /<meta name="twitter:image"/i);
+    assert.match(html, /<h1/);
+    assert.match(html, /application\/ld\+json/);
+    assert.doesNotMatch(html, /id="__next_error__"|<meta name="robots" content="noindex"/i);
+
+    titles.add(title);
+    descriptions.add(description);
+  }
+
+  assert.equal(titles.size, paths.length);
+  assert.equal(descriptions.size, paths.length);
+});
+
 test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
   const [robots, sitemap, llms, llmAlias, tracking] = await Promise.all([
     readFile(new URL("../out/robots.txt", import.meta.url), "utf8"),
@@ -90,13 +137,15 @@ test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
 test("exporteert iedere Strapi-locatie voor iedere dienst als unieke landingspagina", async () => {
   const snapshot = await getSnapshot();
   assert.equal(snapshot.locations.length, 8);
-  assert.equal(snapshot.services.length, 4);
+  assert.equal(snapshot.services.length, 8);
   assert.equal(snapshot.services.filter((service) => service.isWebsiteService).length, 1);
 
   const routes = new Set();
   for (const service of snapshot.services) {
     assert.match(service.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
     assert.ok(service.seoKeyword);
+    assert.ok(Array.isArray(service.searchTerms));
+    assert.ok(service.searchTerms.length > 0);
     assert.ok(service.landingIntro);
 
     for (const location of snapshot.locations) {
@@ -161,6 +210,41 @@ test("bouwt de Strapi-snapshot in zonder client-side CMS-request", async () => {
   assert.doesNotMatch(home, /localhost:1337|\/api\/site-setting/);
 });
 
+test("ondersteunt de regionale commerciële zoekintentie en nieuwe expertises", async () => {
+  const [home, websiteEindhoven, webshopEindhoven, services, quote, snapshot] = await Promise.all([
+    readPage(),
+    readPage("website-laten-maken/eindhoven/"),
+    readPage("diensten/webshops/eindhoven/"),
+    readPage("online-diensten/"),
+    readPage("contact/"),
+    getSnapshot(),
+  ]);
+
+  const requiredServices = [
+    "websites",
+    "webshops",
+    "web-apps",
+    "backend-apis",
+    "doorontwikkeling",
+    "ai-training-gastlessen",
+    "security-assessments-pentests",
+    "technisch-projectleider",
+  ];
+  assert.deepEqual(snapshot.services.map((service) => service.slug), requiredServices);
+  assert.match(textContent(home), /Website laten bouwen in Eindhoven en omgeving/i);
+  assert.match(textContent(home), /WordPress/i);
+  assert.match(textContent(home), /Shopify \/ Liquid/i);
+  assert.match(textContent(websiteEindhoven), /website laten bouwen in Eindhoven/i);
+  assert.match(textContent(websiteEindhoven), /WordPress/i);
+  assert.match(textContent(webshopEindhoven), /Shopify/i);
+  assert.match(textContent(webshopEindhoven), /Liquid maatwerk/i);
+  assert.match(textContent(services), /AI-training & gastlessen/i);
+  assert.match(textContent(services), /Security-assessments & pentests/i);
+  assert.match(textContent(services), /Nearshore & offshore/i);
+  assert.match(textContent(quote), /Webshop, Shopify of Liquid/i);
+  assert.match(textContent(quote), /Security-assessment of pentest/i);
+});
+
 test("biedt veilige vrije name- en property-metatags via Strapi", async () => {
   const schema = JSON.parse(await readFile(
     new URL("../cms/src/components/shared/meta-tag.json", import.meta.url),
@@ -182,10 +266,10 @@ test("beheert locaties en dienst-SEO volledig via Strapi", async () => {
   ]);
 
   assert.equal(locationSchema.kind, "collectionType");
-  for (const field of ["name", "slug", "province", "intro", "localText", "active", "sortOrder"]) {
+  for (const field of ["name", "slug", "province", "intro", "localText", "regionalContext", "active", "sortOrder"]) {
     assert.ok(locationSchema.attributes[field]);
   }
-  for (const field of ["slug", "seoKeyword", "landingIntro", "isWebsiteService"]) {
+  for (const field of ["slug", "seoKeyword", "searchTerms", "landingIntro", "isWebsiteService"]) {
     assert.ok(serviceSchema.attributes[field]);
   }
 });

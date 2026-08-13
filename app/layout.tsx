@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { TrackingConsent } from "@/components/TrackingConsent";
-import { getSiteContent } from "@/lib/strapi";
+import { getLocations, getSiteContent } from "@/lib/strapi";
 import "./globals.css";
 
 const siteUrl = "https://oussamaelhajoui.nl";
@@ -65,7 +65,7 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const content = await getSiteContent();
+  const [content, locations] = await Promise.all([getSiteContent(), getLocations()]);
   const validMetaKey = /^[A-Za-z][A-Za-z0-9:._-]{0,99}$/;
   const customMetaTags = content.customMetaTags.filter((tag) =>
     (tag.attribute === "name" || tag.attribute === "property") &&
@@ -81,16 +81,48 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
     content.tracking.tiktokPixelId ||
     content.tracking.snapPixelId,
   );
+  const socialProfiles = [content.contact.linkedinUrl, content.contact.githubUrl].filter(Boolean);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: content.siteName,
-    url: siteUrl,
-    image: `${siteUrl}/oussamaelhajoui-logo.png`,
-    email: content.contact.email,
-    description: content.seoDescription,
-    areaServed: content.contact.location || "Nederland",
-    knowsAbout: ["Webdevelopment", ...content.stack, "Strapi", "Tailwind CSS"],
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        name: content.siteName,
+        alternateName: "Oussama El Hajoui Software Engineering",
+        url: siteUrl,
+        inLanguage: "nl-NL",
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#oussama`,
+        name: content.siteName,
+        url: siteUrl,
+        image: `${siteUrl}/oussamaelhajoui-logo.png`,
+        email: content.contact.email,
+        jobTitle: "Software engineer",
+        ...(socialProfiles.length > 0 ? { sameAs: socialProfiles } : {}),
+        knowsAbout: [
+          "Webdevelopment", "WordPress", "Shopify", "Liquid", ...content.stack,
+          "Java", ".NET", "AI-training", "Cybersecurity", "Penetration testing", "Technisch projectleiderschap",
+        ],
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${siteUrl}/#business`,
+        name: content.siteName,
+        url: siteUrl,
+        image: `${siteUrl}/oussamaelhajoui-logo.png`,
+        email: content.contact.email,
+        description: content.seoDescription,
+        founder: { "@id": `${siteUrl}/#oussama` },
+        areaServed: locations.map((location) => ({
+          "@type": "City",
+          name: location.name,
+          containedInPlace: { "@type": "AdministrativeArea", name: location.province },
+        })),
+      },
+    ],
   };
 
   return (

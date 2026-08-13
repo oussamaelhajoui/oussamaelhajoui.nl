@@ -474,6 +474,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Noord-Brabant'>;
     publishedAt: Schema.Attribute.DateTime;
+    regionalContext: Schema.Attribute.Text;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     sortOrder: Schema.Attribute.Integer &
       Schema.Attribute.Required &
@@ -551,6 +552,9 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     bingSiteVerification: Schema.Attribute.String;
     collaborationCards: Schema.Attribute.Component<'shared.summary-card', true>;
     contact: Schema.Attribute.Component<'shared.contact-info', false>;
+    contentRevision: Schema.Attribute.Integer &
+      Schema.Attribute.Private &
+      Schema.Attribute.DefaultTo<1>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

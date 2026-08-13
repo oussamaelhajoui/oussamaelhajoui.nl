@@ -82,11 +82,13 @@ if (
   services.some((service) =>
     !validSlug.test(service.slug || "") ||
     !service.seoKeyword ||
+    !Array.isArray(service.searchTerms) ||
+    service.searchTerms.length === 0 ||
     !service.landingIntro,
   ) ||
   services.filter((service) => service.isWebsiteService).length !== 1
 ) {
-  throw new Error("Iedere Strapi-dienst moet een unieke slug, SEO-zoekterm en landingsintro hebben; markeer exact één dienst als website-dienst.");
+  throw new Error("Iedere Strapi-dienst moet een unieke slug, SEO-zoekterm, aanvullende zoektermen en landingsintro hebben; markeer exact één dienst als website-dienst.");
 }
 
 if (new Set(services.map((service) => service.slug)).size !== services.length) {
@@ -100,10 +102,11 @@ if (
     !location.name ||
     !validSlug.test(location.slug || "") ||
     !location.intro ||
-    !location.localText,
+    !location.localText ||
+    !location.regionalContext,
   )
 ) {
-  throw new Error("Iedere gepubliceerde actieve locatie moet een naam, geldige slug, intro en lokale tekst hebben.");
+  throw new Error("Iedere gepubliceerde actieve locatie moet een naam, geldige slug, intro, website-tekst en regionale context hebben.");
 }
 
 if (new Set(locations.map((location) => location.slug)).size !== locations.length) {
@@ -149,12 +152,12 @@ const llmsText = `# ${data.siteName}
 
 > ${data.seoDescription}
 
-${data.siteName} is een Nederlandse software engineer die snelle websites en webapplicaties ontwerpt en ontwikkelt met React, Angular, Java, C#, Tailwind CSS en Strapi.
+${data.siteName} is een software engineer uit de regio Eindhoven voor websites, WordPress, Shopify-webshops, Liquid-maatwerk, webapplicaties, backends, AI-training, security-assessments en technisch projectleiderschap.
 
 ## Belangrijkste pagina's
 
 - [Home](https://oussamaelhajoui.nl/): Overzicht van expertise, diensten en beschikbaarheid.
-- [Online diensten](https://oussamaelhajoui.nl/online-diensten/): Websites, web apps, backends, API's en doorontwikkeling.
+- [Online diensten](https://oussamaelhajoui.nl/online-diensten/): ${services.map((service) => service.title).join(", ")}.
 - [Projecten](https://oussamaelhajoui.nl/projecten/): Gepubliceerde portfolio-projecten en gebruikte technologieën.
 - [Werkwijze](https://oussamaelhajoui.nl/werkwijze/): Het proces van kennismaking tot livegang.
 - [Over Oussama](https://oussamaelhajoui.nl/over-oussama/): Achtergrond, technische expertise en samenwerkingsstijl.
@@ -189,7 +192,7 @@ const sitemapUrls = [
     service.isWebsiteService
       ? `/website-laten-maken/${location.slug}/`
       : `/diensten/${service.slug}/${location.slug}/`,
-    service.isWebsiteService ? "0.8" : "0.7",
+    service.isWebsiteService || service.slug === "webshops" ? "0.8" : "0.7",
   ])),
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

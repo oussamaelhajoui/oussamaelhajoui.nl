@@ -22,6 +22,7 @@ export type ServiceContent = {
   title: string;
   slug: string;
   seoKeyword: string;
+  searchTerms: string[];
   landingIntro: string;
   isWebsiteService: boolean;
   lead: string;
@@ -35,6 +36,7 @@ export type LocationContent = {
   province: string;
   intro: string;
   localText: string;
+  regionalContext: string;
   active: boolean;
   sortOrder: number;
 };

@@ -20,18 +20,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: LocationPageProps): Promise<Metadata> {
   const { location: locationSlug } = await params;
-  const locations = await getLocations();
+  const [content, locations] = await Promise.all([getSiteContent(), getLocations()]);
   const location = locations.find((item) => item.slug === locationSlug);
-  if (!location) notFound();
+  const websiteService = content.services.find((service) => service.isWebsiteService);
+  if (!location || !websiteService) notFound();
 
-  const title = `Website laten maken ${location.name}`;
-  const description = `Website laten maken in ${location.name}? Oussama El Hajoui bouwt snelle, vindbare websites met een eigen ontwerp, sterke techniek en een eenvoudig Strapi CMS.`;
+  const title = `Website laten maken in ${location.name}`;
+  const description = `Website laten maken of bouwen in ${location.name}? Oussama bouwt snelle maatwerk- en WordPress-websites met sterke SEO en persoonlijke begeleiding.`;
   const path = `/website-laten-maken/${location.slug}/`;
 
   return {
     title,
     description,
-    keywords: [`website laten maken ${location.name}`, `webdesign ${location.name}`, `webdeveloper ${location.name}`],
+    keywords: [...websiteService.searchTerms, "webdesign", "websitebouwer"].map((term) => `${term} ${location.name}`),
     alternates: { canonical: path },
     openGraph: {
       type: "website",
@@ -57,13 +58,31 @@ export default async function WebsiteLatenMakenPage({ params }: LocationPageProp
   const otherLocations = locations.filter((item) => item.slug !== location.slug);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: `Website laten maken in ${location.name}`,
-    serviceType: websiteService.seoKeyword,
-    description: location.intro,
-    url: `${siteUrl}${path}`,
-    provider: { "@type": "Person", name: content.siteName, url: siteUrl },
-    areaServed: { "@type": "City", name: location.name },
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}${path}#service`,
+        name: `Website laten maken in ${location.name}`,
+        serviceType: websiteService.seoKeyword,
+        description: location.intro,
+        url: `${siteUrl}${path}`,
+        provider: { "@id": `${siteUrl}/#business` },
+        areaServed: {
+          "@type": "City",
+          name: location.name,
+          containedInPlace: { "@type": "AdministrativeArea", name: location.province },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${siteUrl}${path}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+          { "@type": "ListItem", position: 2, name: "Online diensten", item: `${siteUrl}/online-diensten/` },
+          { "@type": "ListItem", position: 3, name: `Website laten maken ${location.name}`, item: `${siteUrl}${path}` },
+        ],
+      },
+    ],
   };
 
   return (
@@ -91,6 +110,7 @@ export default async function WebsiteLatenMakenPage({ params }: LocationPageProp
             <h2 className="section-title mt-5">Een website die vertrouwen omzet in actie.</h2>
             <div className="mt-8 max-w-3xl space-y-6 text-lg leading-8 text-ink-muted">
               <p>{location.localText}</p>
+              <p>Wil je een website laten bouwen in {location.name}? Ik help met maatwerk, WordPress en een beheervriendelijk CMS. Daarbij krijgen inhoud, mobiele snelheid, toegankelijkheid en lokale vindbaarheid vanaf het begin aandacht.</p>
               <p>{websiteService.detail}</p>
             </div>
             <a className="button button-primary mt-10" href="/contact/">Bespreek je website <span aria-hidden="true">↗</span></a>

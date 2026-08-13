@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import { CtaBand } from "@/components/CtaBand";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ArrowLink, CodeMark, SectionIntro } from "@/components/Ui";
-import { getProjects, getSiteContent } from "@/lib/strapi";
+import { getLocations, getProjects, getSiteContent } from "@/lib/strapi";
 
 export const metadata: Metadata = {
-  title: "Software engineer voor websites & web apps",
+  title: "Software engineer voor websites, webshops & web apps",
   description:
-    "Oussama El Hajoui bouwt snelle websites en web apps met React, Angular, Java en C#. Vraag vrijblijvend een offerte aan.",
+    "Oussama El Hajoui bouwt websites, WordPress-sites, Shopify-webshops en web apps in Eindhoven en omgeving. Vraag vrijblijvend een offerte aan.",
   alternates: { canonical: "/" },
 };
 
 export default async function Home() {
-  const [content, projects] = await Promise.all([getSiteContent(), getProjects()]);
+  const [content, projects, locations] = await Promise.all([getSiteContent(), getProjects(), getLocations()]);
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
@@ -115,6 +115,25 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="section-pad border-y border-navy/10 bg-mist">
+        <div className="site-shell grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end lg:gap-20">
+          <div>
+            <p className="kicker">Eindhoven & omgeving</p>
+            <h2 className="section-title mt-5">Website laten bouwen in Eindhoven en omgeving.</h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-ink-muted">
+              Zoek je een websitebouwer in de regio Eindhoven? Ik bouw snelle maatwerk- en WordPress-websites met persoonlijke begeleiding, sterke technische SEO en een duidelijke route naar contact.
+            </p>
+          </div>
+          <nav className="flex flex-wrap gap-3" aria-label="Website laten maken per locatie">
+            {locations.map((location) => (
+              <a className="chip min-h-11 items-center px-4 font-sans text-sm font-semibold hover:border-blue hover:text-blue" href={`/website-laten-maken/${location.slug}/`} key={location.slug}>
+                Website laten maken {location.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+
       {featuredProjects.length > 0 && (
         <section className="section-pad bg-mist">
           <div className="site-shell">
@@ -165,11 +184,11 @@ export default async function Home() {
               <h2 className="section-title mt-5 max-w-2xl text-white">De juiste stack voor de opdracht.</h2>
             </div>
             <p className="max-w-xl text-lg leading-8 text-white/65 lg:justify-self-end">
-              React of Angular aan de voorkant. Java of C# daarachter. Strapi wanneer je zelf content wilt beheren. Geen hype-stack, wel een doordachte keuze.
+              React of Angular aan de voorkant. Java of C# daarachter. WordPress, Strapi of Shopify wanneer dat beter past bij je beheer en verkoop. Geen hype-stack, wel een doordachte keuze.
             </p>
           </div>
-          <div className="relative z-10 mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10 md:grid-cols-4">
-            {["React", "Angular", "Java", "C# / .NET"].map((tech, index) => (
+          <div className="relative z-10 mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10 md:grid-cols-3 lg:grid-cols-6">
+            {["React", "Angular", "Java", "C# / .NET", "WordPress", "Shopify / Liquid"].map((tech, index) => (
               <div className="bg-navy-soft p-6 sm:p-8" key={tech}>
                 <span className="font-mono text-[10px] text-cyan">0{index + 1}</span>
                 <p className="mt-8 text-xl font-semibold">{tech}</p>

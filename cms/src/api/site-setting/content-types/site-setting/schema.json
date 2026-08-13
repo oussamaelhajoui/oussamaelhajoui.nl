@@ -12,6 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "contentRevision": {
+      "type": "integer",
+      "default": 1,
+      "private": true
+    },
     "siteName": {
       "type": "string",
       "default": "Oussama El Hajoui"

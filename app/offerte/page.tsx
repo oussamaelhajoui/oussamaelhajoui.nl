@@ -4,7 +4,7 @@ import { getSiteContent } from "@/lib/strapi";
 
 export const metadata: Metadata = {
   title: "Offerte aanvragen",
-  description: "Vertel kort over je website of web app en ontvang persoonlijk een vrijblijvende reactie van Oussama El Hajoui.",
+  description: "Vertel kort over je website, webshop, softwareproject, AI-training of securityvraag en ontvang persoonlijk een vrijblijvende reactie.",
   alternates: { canonical: "/contact/" },
   robots: { index: false, follow: true },
 };
@@ -63,10 +63,14 @@ export default async function OffertePage() {
                 <span className="quote-label">Waar gaat het om? *</span>
                 <select className="quote-input" name="projecttype" required defaultValue="">
                   <option value="" disabled>Kies een optie</option>
-                  <option>Nieuwe website</option>
+                  <option>Nieuwe website of WordPress</option>
+                  <option>Webshop, Shopify of Liquid</option>
                   <option>Web app</option>
                   <option>Backend of API</option>
                   <option>Doorontwikkeling</option>
+                  <option>AI-training of gastles</option>
+                  <option>Security-assessment of pentest</option>
+                  <option>Technische project- of teamleiding</option>
                   <option>Nog niet zeker</option>
                 </select>
               </label>

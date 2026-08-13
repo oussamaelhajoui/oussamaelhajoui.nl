@@ -4,7 +4,7 @@ import OffertePage from "@/app/offerte/page";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Neem contact op met Oussama El Hajoui over een website, webapp of softwareproject en ontvang persoonlijk een vrijblijvende reactie.",
+    "Neem contact op over een website, webshop, webapp, AI-training, security-assessment of technisch softwareproject en ontvang persoonlijk antwoord.",
   alternates: { canonical: "/contact/" },
 };
 

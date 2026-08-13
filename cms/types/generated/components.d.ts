@@ -101,6 +101,7 @@ export interface SharedService extends Struct.ComponentSchema {
     landingIntro: Schema.Attribute.Text;
     lead: Schema.Attribute.Text & Schema.Attribute.Required;
     number: Schema.Attribute.String & Schema.Attribute.Required;
+    searchTerms: Schema.Attribute.JSON;
     seoKeyword: Schema.Attribute.String;
     slug: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;

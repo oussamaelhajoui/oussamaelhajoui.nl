@@ -4,7 +4,7 @@ import DienstenPage from "@/app/diensten/page";
 export const metadata: Metadata = {
   title: "Online diensten",
   description:
-    "Online diensten van Oussama El Hajoui: snelle websites, React- en Angular-webapps, Java- en C#-backends en technische doorontwikkeling.",
+    "Websites, WordPress, Shopify-webshops, Liquid, web apps, AI-training, security-assessments en technisch projectleiderschap in Eindhoven en omgeving.",
   alternates: { canonical: "/online-diensten/" },
 };
 
