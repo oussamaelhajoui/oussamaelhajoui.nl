@@ -6,7 +6,7 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const destination = resolve(projectRoot, "content/site.json");
 const strapiUrl = (process.env.STRAPI_URL || "http://localhost:1337").replace(/\/$/, "");
 
-const response = await fetch(`${strapiUrl}/api/site-setting`, {
+const response = await fetch(`${strapiUrl}/api/site-setting?populate=*`, {
   headers: process.env.STRAPI_API_TOKEN
     ? { Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}` }
     : undefined,
@@ -19,26 +19,42 @@ if (!response.ok) {
 const payload = await response.json();
 const data = payload?.data;
 
-if (
-  !data ||
-  typeof data.heroTitle !== "string" ||
-  typeof data.heroText !== "string" ||
-  typeof data.availability !== "string" ||
-  typeof data.quoteEmail !== "string" ||
-  !Array.isArray(data.stack) ||
-  !data.stack.every((item) => typeof item === "string")
-) {
-  throw new Error("Strapi retourneerde niet alle verwachte websitevelden.");
+const publicFields = [
+  "heroTitle",
+  "heroHighlight",
+  "heroText",
+  "availability",
+  "quoteEmail",
+  "stack",
+  "homeServices",
+  "homePrinciples",
+  "servicesHero",
+  "services",
+  "audienceCards",
+  "processHero",
+  "processSteps",
+  "collaborationCards",
+  "aboutHero",
+  "aboutQuote",
+  "aboutParagraphs",
+  "aboutValues",
+  "quoteHero",
+  "quoteSteps",
+  "cta",
+  "footerTagline",
+];
+
+if (!data || publicFields.some((field) => data[field] == null)) {
+  throw new Error("Strapi retourneerde niet alle verwachte websitevelden. Publiceer Website-instellingen opnieuw.");
 }
 
-const snapshot = {
-  heroTitle: data.heroTitle,
-  heroText: data.heroText,
-  availability: data.availability,
-  quoteEmail: data.quoteEmail,
-  stack: data.stack,
-};
+const snapshot = Object.fromEntries(publicFields.map((field) => [field, data[field]]));
+const serialized = JSON.stringify(
+  snapshot,
+  (key, value) => (key === "id" || key === "documentId" ? undefined : value),
+  2,
+);
 
 await mkdir(dirname(destination), { recursive: true });
-await writeFile(destination, `${JSON.stringify(snapshot, null, 2)}\n`, "utf8");
+await writeFile(destination, `${serialized}\n`, "utf8");
 console.log(`Publieke Strapi-content opgeslagen in ${destination}`);

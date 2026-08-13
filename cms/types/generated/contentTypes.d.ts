@@ -455,24 +455,43 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    aboutHero: Schema.Attribute.Component<'shared.page-hero', false>;
+    aboutParagraphs: Schema.Attribute.JSON;
+    aboutQuote: Schema.Attribute.Text;
+    aboutValues: Schema.Attribute.Component<'shared.summary-card', true>;
+    audienceCards: Schema.Attribute.Component<'shared.summary-card', true>;
     availability: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Beschikbaar voor nieuwe projecten'>;
+    collaborationCards: Schema.Attribute.Component<'shared.summary-card', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    cta: Schema.Attribute.Component<'shared.call-to-action', false>;
+    footerTagline: Schema.Attribute.Text;
+    heroHighlight: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'die presteren.'>;
     heroText: Schema.Attribute.Text & Schema.Attribute.Required;
     heroTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Websites en web apps'>;
+    homePrinciples: Schema.Attribute.Component<'shared.summary-card', true>;
+    homeServices: Schema.Attribute.Component<'shared.home-service', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::site-setting.site-setting'
     > &
       Schema.Attribute.Private;
+    processHero: Schema.Attribute.Component<'shared.page-hero', false>;
+    processSteps: Schema.Attribute.Component<'shared.process-step', true>;
     publishedAt: Schema.Attribute.DateTime;
     quoteEmail: Schema.Attribute.Email & Schema.Attribute.Required;
+    quoteHero: Schema.Attribute.Component<'shared.page-hero', false>;
+    quoteSteps: Schema.Attribute.Component<'shared.process-step', true>;
+    services: Schema.Attribute.Component<'shared.service', true>;
+    servicesHero: Schema.Attribute.Component<'shared.page-hero', false>;
     stack: Schema.Attribute.JSON & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

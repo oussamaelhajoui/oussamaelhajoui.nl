@@ -24,6 +24,16 @@ npm run develop
 
 Open daarna `http://localhost:1337/admin` en maak het eerste beheerdersaccount. Het contenttype **Website-instellingen** en de begininhoud worden automatisch aangemaakt.
 
+Onder **Content Manager → Website-instellingen** beheer je onder andere:
+
+- de homepage-intro, beschikbaarheid, stack, diensten en kwaliteitsprincipes;
+- de intro, diensten en doelgroepen van de dienstenpagina;
+- de vijf processtappen en samenwerkingsprincipes;
+- de over-mij-intro, biografie en kernwaarden;
+- de offerte-intro, vervolgstappen, algemene CTA en footertekst.
+
+Klik na een wijziging in Strapi op **Publish**. Vernieuw de lokale website om de wijziging te bekijken.
+
 Strapi blijft lokaal en is niet vanaf GitHub Pages bereikbaar. Daarom wordt alleen de publieke websitecontent vóór publicatie naar `content/site.json` geëxporteerd:
 
 ```bash

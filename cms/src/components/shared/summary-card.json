@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_summary_cards",
+  "info": {
+    "displayName": "Tekstkaart",
+    "description": "Een titel met een korte toelichting"
+  },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "text": { "type": "text", "required": true }
+  }
+}

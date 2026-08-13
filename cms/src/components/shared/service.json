@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_services",
+  "info": {
+    "displayName": "Dienst",
+    "description": "Uitgebreide dienst op de dienstenpagina"
+  },
+  "options": {},
+  "attributes": {
+    "number": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "lead": { "type": "text", "required": true },
+    "detail": { "type": "text", "required": true },
+    "items": { "type": "json", "required": true }
+  }
+}

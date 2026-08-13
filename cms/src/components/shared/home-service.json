@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_home_services",
+  "info": {
+    "displayName": "Dienst op homepage",
+    "description": "Compacte dienstkaart op de homepage"
+  },
+  "options": {},
+  "attributes": {
+    "number": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "text": { "type": "text", "required": true },
+    "tags": { "type": "json", "required": true }
+  }
+}

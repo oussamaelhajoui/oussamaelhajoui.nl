@@ -15,23 +15,19 @@ export default async function OffertePage() {
   return (
     <main>
       <PageHero
-        kicker="Offerte aanvragen"
-        title={<>Vertel me wat je <span className="text-blue">wilt bouwen.</span></>}
-        text="Een paar duidelijke antwoorden zijn genoeg voor een goede eerste inschatting. Vrijblijvend en rechtstreeks bij mij in de inbox."
+        kicker={content.quoteHero.kicker}
+        title={<>{content.quoteHero.title} <span className="text-blue">{content.quoteHero.highlight}</span></>}
+        text={content.quoteHero.text}
       />
       <section className="section-pad bg-white">
         <div className="site-shell grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
           <aside>
             <p className="kicker">Wat gebeurt er daarna?</p>
             <ol className="mt-8 space-y-7">
-              {[
-                ["01", "Ik lees je aanvraag persoonlijk."],
-                ["02", "Je ontvangt vragen of een voorstel voor een korte kennismaking."],
-                ["03", "Daarna volgt een heldere scope, planning en prijs."],
-              ].map(([index, text]) => (
-                <li className="flex gap-5 border-t border-navy/15 pt-5" key={index}>
-                  <span className="font-mono text-[11px] text-blue">{index}</span>
-                  <span className="text-sm leading-6 text-ink-muted">{text}</span>
+              {content.quoteSteps.map((step) => (
+                <li className="flex gap-5 border-t border-navy/15 pt-5" key={step.number}>
+                  <span className="font-mono text-[11px] text-blue">{step.number}</span>
+                  <span className="text-sm leading-6 text-ink-muted">{step.text}</span>
                 </li>
               ))}
             </ol>

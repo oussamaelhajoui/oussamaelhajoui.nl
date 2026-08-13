@@ -10,33 +10,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const services = [
-  {
-    number: "01",
-    title: "Websites die converteren",
-    text: "Een scherpe structuur, onderscheidend ontwerp en technische SEO. Gebouwd om snel te laden én actie uit te lokken.",
-    tags: ["UX/UI", "Tailwind", "SEO"],
-  },
-  {
-    number: "02",
-    title: "Web apps die meegroeien",
-    text: "Van intern portaal tot klantplatform: intuïtieve interfaces met een solide architectuur onder de motorkap.",
-    tags: ["React", "Angular", "API's"],
-  },
-  {
-    number: "03",
-    title: "Backends die blijven staan",
-    text: "Veilige, onderhoudbare services en koppelingen in Java of C# — helder opgezet voor de volgende fase.",
-    tags: ["Java", "C#", "Integraties"],
-  },
-];
-
-const principles = [
-  ["Snel op ieder scherm", "Performance is geen laatste optimalisatieronde, maar een ontwerpkeuze vanaf dag één."],
-  ["Direct met de bouwer", "Geen lagen of overdrachten. Je schakelt rechtstreeks met mij van idee tot livegang."],
-  ["Gebouwd voor morgen", "Heldere code, een logisch CMS en documentatie waarmee je verder kunt."],
-];
-
 export default async function Home() {
   const content = await getSiteContent();
 
@@ -51,7 +24,7 @@ export default async function Home() {
             </div>
             <h1 className="display-title max-w-[980px] text-navy">
               {content.heroTitle}
-              <span className="text-blue"> die presteren.</span>
+              <span className="text-blue"> {content.heroHighlight}</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-ink-muted md:text-xl">
               {content.heroText}
@@ -120,7 +93,7 @@ export default async function Home() {
             text="Design, frontend en backend komen samen in een product dat snel, logisch en betrouwbaar voelt."
           />
           <div className="mt-14 grid border-t border-navy/15 lg:grid-cols-3">
-            {services.map((service) => (
+            {content.homeServices.map((service) => (
               <article className="service-card" key={service.number}>
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs text-blue">{service.number}</span>
@@ -150,12 +123,12 @@ export default async function Home() {
             </p>
           </div>
           <div className="divide-y divide-navy/15 border-y border-navy/15">
-            {principles.map(([title, text], index) => (
-              <article className="grid gap-4 py-8 sm:grid-cols-[60px_1fr]" key={title}>
+            {content.homePrinciples.map((principle, index) => (
+              <article className="grid gap-4 py-8 sm:grid-cols-[60px_1fr]" key={principle.title}>
                 <span className="font-mono text-xs text-blue">0{index + 1}</span>
                 <div>
-                  <h3 className="text-xl font-semibold text-navy">{title}</h3>
-                  <p className="mt-3 max-w-2xl leading-7 text-ink-muted">{text}</p>
+                  <h3 className="text-xl font-semibold text-navy">{principle.title}</h3>
+                  <p className="mt-3 max-w-2xl leading-7 text-ink-muted">{principle.text}</p>
                 </div>
               </article>
             ))}
@@ -186,7 +159,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <CtaBand />
+      <CtaBand content={content.cta} />
     </main>
   );
 }

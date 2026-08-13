@@ -17,6 +17,11 @@
       "required": true,
       "default": "Websites en web apps"
     },
+    "heroHighlight": {
+      "type": "string",
+      "required": true,
+      "default": "die presteren."
+    },
     "heroText": {
       "type": "text",
       "required": true
@@ -33,6 +38,80 @@
     "stack": {
       "type": "json",
       "required": true
+    },
+    "homeServices": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.home-service"
+    },
+    "homePrinciples": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summary-card"
+    },
+    "servicesHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.page-hero"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.service"
+    },
+    "audienceCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summary-card"
+    },
+    "processHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.page-hero"
+    },
+    "processSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.process-step"
+    },
+    "collaborationCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summary-card"
+    },
+    "aboutHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.page-hero"
+    },
+    "aboutQuote": {
+      "type": "text"
+    },
+    "aboutParagraphs": {
+      "type": "json"
+    },
+    "aboutValues": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summary-card"
+    },
+    "quoteHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.page-hero"
+    },
+    "quoteSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.process-step"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.call-to-action"
+    },
+    "footerTagline": {
+      "type": "text"
     }
   }
 }

@@ -1,4 +1,4 @@
-export function Footer() {
+export function Footer({ tagline }: { tagline: string }) {
   return (
     <footer className="border-t border-white/10 bg-navy py-12 text-white">
       <div className="site-shell grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
@@ -6,7 +6,7 @@ export function Footer() {
           <a className="inline-flex rounded-2xl bg-white p-2" href="/" aria-label="Oussama El Hajoui — home">
             <img src="/logo.webp" width="512" height="245" className="h-auto w-[145px]" alt="Oussama El Hajoui" loading="lazy" />
           </a>
-          <p className="mt-5 max-w-md text-sm leading-6 text-white/55">Websites en web apps die helder voelen, snel werken en klaar zijn om te groeien.</p>
+          <p className="mt-5 max-w-md text-sm leading-6 text-white/55">{tagline}</p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70">
           <a className="hover:text-cyan" href="/diensten/">Diensten</a>

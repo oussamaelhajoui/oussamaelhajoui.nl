@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_page_heroes",
+  "info": {
+    "displayName": "Pagina-intro",
+    "description": "Introductie bovenaan een pagina"
+  },
+  "options": {},
+  "attributes": {
+    "kicker": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "highlight": { "type": "string" },
+    "text": { "type": "text", "required": true }
+  }
+}

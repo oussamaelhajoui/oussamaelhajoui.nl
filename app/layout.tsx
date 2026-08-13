@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { getSiteContent } from "@/lib/strapi";
 import "./globals.css";
 
 const siteUrl = "https://oussamaelhajoui.nl";
@@ -55,14 +56,16 @@ const structuredData = {
   knowsAbout: ["Webdevelopment", "React", "Angular", "Java", "C#", "Strapi", "Tailwind CSS"],
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const content = await getSiteContent();
+
   return (
     <html lang="nl">
       <body>
         <a className="skip-link" href="#main-content">Ga naar de inhoud</a>
         <Header />
         <div id="main-content">{children}</div>
-        <Footer />
+        <Footer tagline={content.footerTagline} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
