@@ -336,6 +336,93 @@ const defaultContent = {
   },
 };
 
+const defaultProjects = [
+  {
+    title: 'Kompas Advies — leadgerichte website',
+    slug: 'kompas-advies-website',
+    summary: 'Een heldere corporate website die complexe dienstverlening terugbrengt tot duidelijke keuzes en gerichte aanvragen.',
+    description: 'De conceptcase combineert een rustige visuele stijl, lokale SEO-landingspagina’s en een flexibel Strapi-CMS. De mobiele route naar een kennismaking staat centraal.',
+    client: 'Zakelijke dienstverlening',
+    year: '2026',
+    projectUrl: '',
+    isConcept: true,
+    featured: true,
+    technologies: ['Next.js', 'Tailwind CSS', 'Strapi', 'Technische SEO'],
+    services: ['Website', 'UX/UI', 'SEO', 'CMS'],
+    sortOrder: 10,
+  },
+  {
+    title: 'Noorderlicht Living — Shopify-webshop',
+    slug: 'noorderlicht-shopify-webshop',
+    summary: 'Een premium storefront met snelle productontdekking, sterke mobiele presentatie en een rustige route naar de checkout.',
+    description: 'Voor deze conceptshop zijn herbruikbare Shopify-secties, Liquid-componenten, productfilters en redactionele collectiepagina’s uitgewerkt met conversie en eenvoudig beheer als uitgangspunt.',
+    client: 'Interieur & e-commerce',
+    year: '2026',
+    projectUrl: '',
+    isConcept: true,
+    featured: true,
+    technologies: ['Shopify', 'Liquid', 'JavaScript', 'CRO'],
+    services: ['Webshop', 'Shopify', 'Liquid maatwerk'],
+    sortOrder: 20,
+  },
+  {
+    title: 'RouteFlow — operations platform',
+    slug: 'routeflow-operations-platform',
+    summary: 'Een overzichtelijk operationsdashboard waarmee planners capaciteit, uitzonderingen en voortgang vanuit één werkplek bewaken.',
+    description: 'De case vertaalt een druk logistiek proces naar rollen, duidelijke statussen en gerichte acties. Een React-interface communiceert met onderhoudbare Java-services en realtime updates.',
+    client: 'Logistiek & operations',
+    year: '2026',
+    projectUrl: '',
+    isConcept: true,
+    featured: true,
+    technologies: ['React', 'TypeScript', 'Java', 'Spring Boot', 'PostgreSQL'],
+    services: ['Web app', 'Backend & API', 'Technische projectleiding'],
+    sortOrder: 30,
+  },
+  {
+    title: 'Zorgpad — veilig cliëntportaal',
+    slug: 'zorgpad-clientportaal',
+    summary: 'Een toegankelijk cliëntportaal voor afspraken, documenten en veilige communicatie, ontworpen voor rust en duidelijkheid.',
+    description: 'Deze conceptcase focust op inclusieve interactie, sterke autorisatie en een helder auditspoor. De technische opzet scheidt gevoelige processen en maakt gecontroleerde uitbreiding mogelijk.',
+    client: 'Zorg & dienstverlening',
+    year: '2026',
+    projectUrl: '',
+    isConcept: true,
+    featured: false,
+    technologies: ['Angular', 'C#', '.NET', 'Azure', 'WCAG'],
+    services: ['Web app', 'Backend & API', 'Security'],
+    sortOrder: 40,
+  },
+  {
+    title: 'AI Werkplaats — training platform',
+    slug: 'ai-werkplaats-training-platform',
+    summary: 'Een interactief leerplatform dat teams stap voor stap laat oefenen met generatieve AI, privacy en resultaatbeoordeling.',
+    description: 'De leerroute combineert korte uitleg, praktijkscenario’s en reflectievragen. Beheerders kunnen programma’s samenstellen voor bedrijfstrainingen, workshops en gastlessen.',
+    client: 'Onderwijs & teams',
+    year: '2026',
+    projectUrl: '',
+    isConcept: true,
+    featured: false,
+    technologies: ['React', 'Strapi', 'AI-geletterdheid', 'Accessibility'],
+    services: ['AI-training', 'Gastlessen', 'Web app'],
+    sortOrder: 50,
+  },
+  {
+    title: 'SecureScope — assessment workspace',
+    slug: 'securescope-assessment-workspace',
+    summary: 'Een beveiligde workspace die technische bevindingen vertaalt naar risico, bewijs en concrete herstelprioriteiten.',
+    description: 'De conceptoplossing ondersteunt een geautoriseerde assessmentworkflow: scope vastleggen, bevindingen structureren, bewijs afschermen en een begrijpelijke managementrapportage opleveren.',
+    client: 'Digital security',
+    year: '2026',
+    projectUrl: '',
+    isConcept: true,
+    featured: false,
+    technologies: ['React', 'C#', '.NET', 'OWASP', 'Security reporting'],
+    services: ['Security-assessment', 'Pentest rapportage', 'Web app'],
+    sortOrder: 60,
+  },
+];
+
 const defaultLocations = [
   {
     name: 'Eindhoven',
@@ -522,6 +609,19 @@ const strapiConfig = {
           documentId: existingLocation.documentId,
           status: 'published',
           data: { regionalContext: location.regionalContext } as never,
+        });
+      }
+    }
+
+    const projectUid = 'api::project.project' as const;
+    for (const project of defaultProjects) {
+      const existingProject = await strapi.db.query(projectUid).findOne({
+        where: { slug: project.slug },
+      });
+      if (!existingProject) {
+        await strapi.documents(projectUid).create({
+          status: 'published',
+          data: project as never,
         });
       }
     }

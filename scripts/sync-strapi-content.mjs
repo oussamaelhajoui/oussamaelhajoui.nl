@@ -163,7 +163,7 @@ ${data.siteName} is een software engineer uit de regio Eindhoven voor websites, 
 - [Over Oussama](https://oussamaelhajoui.nl/over-oussama/): Achtergrond, technische expertise en samenwerkingsstijl.
 - [Contact](https://oussamaelhajoui.nl/contact/): Contact- en offerteformulier voor nieuwe projecten.
 - [Privacy](https://oussamaelhajoui.nl/privacy/): Informatie over gegevensverwerking en trackingtoestemming.
-${projects.map((project) => `- [${project.title}](https://oussamaelhajoui.nl/projecten/): ${project.summary}`).join("\n")}
+${projects.map((project) => `- [${project.title}](https://oussamaelhajoui.nl/projecten/): ${project.isConcept ? "Conceptcase — " : ""}${project.summary}`).join("\n")}
 
 ## Diensten per locatie
 

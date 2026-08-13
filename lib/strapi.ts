@@ -89,6 +89,7 @@ export type ProjectContent = {
   projectUrl?: string | null;
   coverImageUrl?: string | null;
   coverImageAlt?: string | null;
+  isConcept: boolean;
   featured: boolean;
   technologies: string[];
   services?: string[] | null;

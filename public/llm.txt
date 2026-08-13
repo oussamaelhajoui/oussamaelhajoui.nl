@@ -13,7 +13,12 @@ Oussama El Hajoui is een software engineer uit de regio Eindhoven voor websites,
 - [Over Oussama](https://oussamaelhajoui.nl/over-oussama/): Achtergrond, technische expertise en samenwerkingsstijl.
 - [Contact](https://oussamaelhajoui.nl/contact/): Contact- en offerteformulier voor nieuwe projecten.
 - [Privacy](https://oussamaelhajoui.nl/privacy/): Informatie over gegevensverwerking en trackingtoestemming.
-
+- [Kompas Advies — leadgerichte website](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een heldere corporate website die complexe dienstverlening terugbrengt tot duidelijke keuzes en gerichte aanvragen.
+- [Noorderlicht Living — Shopify-webshop](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een premium storefront met snelle productontdekking, sterke mobiele presentatie en een rustige route naar de checkout.
+- [RouteFlow — operations platform](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een overzichtelijk operationsdashboard waarmee planners capaciteit, uitzonderingen en voortgang vanuit één werkplek bewaken.
+- [Zorgpad — veilig cliëntportaal](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een toegankelijk cliëntportaal voor afspraken, documenten en veilige communicatie, ontworpen voor rust en duidelijkheid.
+- [AI Werkplaats — training platform](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een interactief leerplatform dat teams stap voor stap laat oefenen met generatieve AI, privacy en resultaatbeoordeling.
+- [SecureScope — assessment workspace](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een beveiligde workspace die technische bevindingen vertaalt naar risico, bewijs en concrete herstelprioriteiten.
 
 ## Diensten per locatie
 

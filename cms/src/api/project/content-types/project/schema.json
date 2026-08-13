@@ -23,6 +23,7 @@
     "client": { "type": "string" },
     "year": { "type": "string" },
     "projectUrl": { "type": "string" },
+    "isConcept": { "type": "boolean", "required": true, "default": false },
     "featured": { "type": "boolean", "required": true, "default": false },
     "technologies": { "type": "json", "required": true },
     "services": { "type": "json" },

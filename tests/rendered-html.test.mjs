@@ -221,6 +221,21 @@ test("bouwt de Strapi-snapshot in zonder client-side CMS-request", async () => {
   assert.doesNotMatch(home, /localhost:1337|\/api\/site-setting/);
 });
 
+test("presenteert conceptprojecten transparant en zonder verzonnen klantclaims", async () => {
+  const [home, projectsPage, snapshot] = await Promise.all([readPage(), readPage("projecten/"), getSnapshot()]);
+
+  assert.equal(snapshot.projects.length, 6);
+  assert.equal(snapshot.projects.filter((project) => project.featured).length, 3);
+  assert.ok(snapshot.projects.every((project) => project.isConcept === true));
+  assert.match(textContent(projectsPage), /eigen conceptcases en geen claims over uitgevoerde klantopdrachten/i);
+  assert.equal((projectsPage.match(/Conceptcase · eigen demo/g) ?? []).length, snapshot.projects.length);
+  assert.equal((home.match(/Conceptcase · eigen demo/g) ?? []).length, 3);
+  for (const project of snapshot.projects) {
+    assert.ok(projectsPage.includes(project.title));
+    assert.ok(project.technologies.length >= 4);
+  }
+});
+
 test("ondersteunt de regionale commerciële zoekintentie en nieuwe expertises", async () => {
   const [home, websiteEindhoven, webshopEindhoven, services, quote, snapshot] = await Promise.all([
     readPage(),

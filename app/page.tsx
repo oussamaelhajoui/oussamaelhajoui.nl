@@ -135,12 +135,12 @@ export default async function Home() {
       </section>
 
       {featuredProjects.length > 0 && (
-        <section className="section-pad bg-mist">
+        <section className="section-pad bg-white">
           <div className="site-shell">
             <SectionIntro
               kicker="Projecten"
               title="Geselecteerd werk. Gericht op resultaat."
-              text="Een selectie van digitale producten waarin ontwerp, performance en degelijke techniek samenkomen."
+              text="Transparant gelabelde conceptcases waarin ontwerp, performance en degelijke techniek samenkomen."
             />
             <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {featuredProjects.map((project) => <ProjectCard project={project} key={project.slug} />)}
