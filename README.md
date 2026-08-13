@@ -83,6 +83,8 @@ Het formulier gebruikt FormSubmit en werkt zonder frontend-JavaScript. Het ontva
 
 De workflow in `.github/workflows/deploy-pages.yml` publiceert de map `out/`. `public/CNAME` koppelt de build aan `oussamaelhajoui.nl`.
 
+Het domein gebruikt momenteel externe `quicns.com`-nameservers. Wil je de DNS-records in Namecheap beheren, kies dan eerst bij **Domain List → Manage → Nameservers** voor **Namecheap BasicDNS**. Kopieer vooraf eventuele bestaande mail-, verificatie- en overige DNS-records; die verhuizen niet automatisch mee. Verwijder daarna het oude `A`-record naar `95.179.145.87` en andere conflicterende parkeer-, hosting- of redirectrecords.
+
 In Namecheap voeg je voor het hoofddomein vier `A`-records toe:
 
 | Type | Host | Value |
@@ -92,7 +94,7 @@ In Namecheap voeg je voor het hoofddomein vier `A`-records toe:
 | A | `@` | `185.199.110.153` |
 | A | `@` | `185.199.111.153` |
 
-Voeg daarnaast `CNAME` host `www` toe met waarde `<github-gebruikersnaam>.github.io`. Verwijder conflicterende parkeer- of redirectrecords. Activeer ten slotte **Enforce HTTPS** bij **Settings → Pages** zodra GitHub het certificaat heeft uitgegeven.
+Voeg daarnaast `CNAME` host `www` toe met waarde `oussamaelhajoui.github.io`. Activeer ten slotte **Enforce HTTPS** bij **Settings → Pages** zodra GitHub het certificaat heeft uitgegeven.
 
 ## Controle
 
