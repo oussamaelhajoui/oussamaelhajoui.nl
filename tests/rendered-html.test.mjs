@@ -18,6 +18,22 @@ test("bevat SEO, toegankelijkheid en het offerteformulier", async () => {
   const home = await readPage();
   const quote = await readPage("offerte/");
   assert.match(home, /application\/ld\+json/);
+  assert.match(home, /<meta charSet="utf-8"/i);
+  assert.match(home, /<meta name="viewport"/i);
+  assert.match(home, /<meta name="theme-color" content="#07172f"/i);
+  assert.match(home, /<meta name="description"/i);
+  assert.match(home, /<meta name="generator" content="Next\.js"/i);
+  assert.match(home, /<meta name="application-name" content="Oussama El Hajoui"/i);
+  assert.match(home, /<meta name="author" content="Oussama El Hajoui"/i);
+  assert.match(home, /<meta name="keywords"/i);
+  assert.match(home, /<meta name="referrer" content="origin-when-cross-origin"/i);
+  assert.match(home, /<meta name="robots"/i);
+  assert.match(home, /<meta name="googlebot"/i);
+  assert.match(home, /<meta property="og:title"/i);
+  assert.match(home, /<meta property="og:description"/i);
+  assert.match(home, /<meta property="og:image"/i);
+  assert.match(home, /<meta name="twitter:card" content="summary_large_image"/i);
+  assert.match(home, /<meta name="twitter:title"/i);
   const externalScripts = home.match(/<script[^>]+src=/gi) ?? [];
   const stylesheets = home.match(/<link[^>]+rel="stylesheet"/gi) ?? [];
   assert.ok(externalScripts.length <= 1);
@@ -61,5 +77,23 @@ test("bouwt de Strapi-snapshot in zonder client-side CMS-request", async () => {
   assert.ok(services.includes(snapshot.services[0].lead));
   assert.ok(process.includes(snapshot.processSteps[0].text));
   assert.ok(about.includes(snapshot.aboutQuote));
+  assert.ok(Array.isArray(snapshot.seoKeywords));
+  assert.equal(typeof snapshot.robotsIndex, "boolean");
+  assert.equal(typeof snapshot.robotsFollow, "boolean");
+  assert.ok(Array.isArray(snapshot.customMetaTags));
   assert.doesNotMatch(home, /localhost:1337|\/api\/site-setting/);
+});
+
+test("biedt veilige vrije name- en property-metatags via Strapi", async () => {
+  const schema = JSON.parse(await readFile(
+    new URL("../cms/src/components/shared/meta-tag.json", import.meta.url),
+    "utf8",
+  ));
+  const layout = await readFile(new URL("../app/layout.tsx", import.meta.url), "utf8");
+  assert.deepEqual(schema.attributes.attribute.enum, ["name", "property"]);
+  assert.equal(schema.attributes.metaKey.required, true);
+  assert.equal(schema.attributes.content.required, true);
+  assert.match(layout, /<meta property=\{tag\.metaKey\} content=\{tag\.content\}/);
+  assert.match(layout, /<meta name=\{tag\.metaKey\} content=\{tag\.content\}/);
+  assert.match(layout, /validMetaKey\.test\(tag\.metaKey\)/);
 });

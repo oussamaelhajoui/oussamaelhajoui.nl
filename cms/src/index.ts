@@ -5,6 +5,23 @@ const defaultContent = {
   seoTitle: 'Oussama El Hajoui — Software engineer',
   seoDescription:
     'Snelle websites en web apps met React, Angular, Java en C#. Rechtstreeks samenwerken met software engineer Oussama El Hajoui.',
+  seoKeywords: [
+    'software engineer',
+    'website laten maken',
+    'web app development',
+    'React developer',
+    'Angular developer',
+    'Java developer',
+    'C# developer',
+    'Nederland',
+  ],
+  socialTitle: 'Oussama El Hajoui — Software engineer',
+  socialDescription: 'Snelle websites en web apps die helder voelen, goed presteren en klaar zijn om te groeien.',
+  robotsIndex: true,
+  robotsFollow: true,
+  googleSiteVerification: '',
+  bingSiteVerification: '',
+  customMetaTags: [],
   heroTitle: 'Websites en web apps',
   heroHighlight: 'die presteren.',
   heroText:

@@ -22,6 +22,34 @@
     "seoDescription": {
       "type": "text"
     },
+    "seoKeywords": {
+      "type": "json"
+    },
+    "socialTitle": {
+      "type": "string"
+    },
+    "socialDescription": {
+      "type": "text"
+    },
+    "robotsIndex": {
+      "type": "boolean",
+      "default": true
+    },
+    "robotsFollow": {
+      "type": "boolean",
+      "default": true
+    },
+    "googleSiteVerification": {
+      "type": "string"
+    },
+    "bingSiteVerification": {
+      "type": "string"
+    },
+    "customMetaTags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.meta-tag"
+    },
     "heroTitle": {
       "type": "string",
       "required": true,

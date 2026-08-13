@@ -507,13 +507,16 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     availability: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Beschikbaar voor nieuwe projecten'>;
+    bingSiteVerification: Schema.Attribute.String;
     collaborationCards: Schema.Attribute.Component<'shared.summary-card', true>;
     contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     cta: Schema.Attribute.Component<'shared.call-to-action', false>;
+    customMetaTags: Schema.Attribute.Component<'shared.meta-tag', true>;
     footerTagline: Schema.Attribute.Text;
+    googleSiteVerification: Schema.Attribute.String;
     heroHighlight: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'die presteren.'>;
@@ -534,12 +537,17 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     quoteHero: Schema.Attribute.Component<'shared.page-hero', false>;
     quoteSteps: Schema.Attribute.Component<'shared.process-step', true>;
+    robotsFollow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    robotsIndex: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     seoDescription: Schema.Attribute.Text;
+    seoKeywords: Schema.Attribute.JSON;
     seoTitle: Schema.Attribute.String;
     services: Schema.Attribute.Component<'shared.service', true>;
     servicesHero: Schema.Attribute.Component<'shared.page-hero', false>;
     siteName: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Oussama El Hajoui'>;
+    socialDescription: Schema.Attribute.Text;
+    socialTitle: Schema.Attribute.String;
     stack: Schema.Attribute.JSON & Schema.Attribute.Required;
     tracking: Schema.Attribute.Component<'shared.tracking-settings', false>;
     updatedAt: Schema.Attribute.DateTime;

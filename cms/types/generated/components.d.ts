@@ -44,6 +44,21 @@ export interface SharedHomeService extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedMetaTag extends Struct.ComponentSchema {
+  collectionName: 'components_shared_meta_tags';
+  info: {
+    description: 'Veilige extra meta-tag met een name- of property-attribuut';
+    displayName: 'Extra meta-tag';
+  };
+  attributes: {
+    attribute: Schema.Attribute.Enumeration<['name', 'property']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'name'>;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaKey: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedPageHero extends Struct.ComponentSchema {
   collectionName: 'components_shared_page_heroes';
   info: {
@@ -125,6 +140,7 @@ declare module '@strapi/strapi' {
       'shared.call-to-action': SharedCallToAction;
       'shared.contact-info': SharedContactInfo;
       'shared.home-service': SharedHomeService;
+      'shared.meta-tag': SharedMetaTag;
       'shared.page-hero': SharedPageHero;
       'shared.process-step': SharedProcessStep;
       'shared.service': SharedService;

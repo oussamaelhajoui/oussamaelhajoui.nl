@@ -57,6 +57,12 @@ export type TrackingContent = {
   snapPixelId?: string | null;
 };
 
+export type CustomMetaTagContent = {
+  attribute: "name" | "property";
+  metaKey: string;
+  content: string;
+};
+
 export type ProjectContent = {
   title: string;
   slug: string;
@@ -77,6 +83,14 @@ export type SiteContent = {
   siteName: string;
   seoTitle: string;
   seoDescription: string;
+  seoKeywords: string[];
+  socialTitle: string;
+  socialDescription: string;
+  robotsIndex: boolean;
+  robotsFollow: boolean;
+  googleSiteVerification?: string | null;
+  bingSiteVerification?: string | null;
+  customMetaTags: CustomMetaTagContent[];
   heroTitle: string;
   heroHighlight: string;
   heroText: string;

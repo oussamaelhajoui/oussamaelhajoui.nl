@@ -31,12 +31,18 @@ Onder **Content Manager → Website-instellingen** beheer je onder andere:
 - de vijf processtappen en samenwerkingsprincipes;
 - de over-mij-intro, biografie en kernwaarden;
 - de offerte-intro, vervolgstappen, algemene CTA en footertekst.
-- SEO-titel, omschrijving, contactgegevens en sociale profielen;
+- SEO-titel, omschrijving, zoekwoorden, social-preview, robots-instellingen en verificatiecodes;
+- vrije extra `<meta name="...">`- en `<meta property="...">`-tags;
+- contactgegevens en sociale profielen;
 - Google Tag Manager, Google tag en pixels voor Meta, TikTok en Snapchat.
 
 Onder **Content Manager → Projecten** voeg je portfolio-items toe. Alleen gepubliceerde projecten verschijnen op de projectenpagina; items met **Uitgelicht** verschijnen ook op de homepage.
 
 Tracking staat standaard uit. Vul onder **Tracking en pixels** alleen de ID's in, zet **Enabled** aan en publiceer. Tags worden pas na toestemming geladen. Gebruik pixels óf beheer ze in Google Tag Manager om dubbele metingen te voorkomen.
+
+De site genereert standaard de technische en SEO-meta-informatie: charset, viewport, theme color, description, keywords, canonical URL, robots en Googlebot-regels, auteursinformatie, Open Graph, Twitter Cards, iconen en gestructureerde data. Vul onder **Website-instellingen** ook de optionele Google- en Bing-verificatiecodes in; voeg alleen de codewaarde toe, niet de volledige HTML-tag.
+
+Gebruik **Extra meta-tags** voor een provider-specifieke tag die nog niet standaard aanwezig is. Kies `name` of `property`, vul bij **Meta key** alleen de sleutel in (bijvoorbeeld `pinterest-site-verification` of `product:brand`) en vul daarna **Content** in. Deze tags worden veilig als HTML-attributen op iedere pagina geplaatst; scripts of vrije HTML worden niet uitgevoerd. Voeg standaardtags niet dubbel toe.
 
 Klik na een wijziging in Strapi op **Publish**. Vernieuw de lokale website om de wijziging te bekijken.
 
