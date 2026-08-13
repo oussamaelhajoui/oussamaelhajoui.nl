@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "Website-instellingen",
+    "description": "Beheer de belangrijkste teksten en contactgegevens van de website."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Websites en web apps"
+    },
+    "heroText": {
+      "type": "text",
+      "required": true
+    },
+    "availability": {
+      "type": "string",
+      "required": true,
+      "default": "Beschikbaar voor nieuwe projecten"
+    },
+    "quoteEmail": {
+      "type": "email",
+      "required": true
+    },
+    "stack": {
+      "type": "json",
+      "required": true
+    }
+  }
+}
