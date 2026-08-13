@@ -25,3 +25,10 @@ test("bevat SEO, toegankelijkheid en het offerteformulier", async () => {
   assert.match(quote, /name="privacy-akkoord"/);
   assert.match(quote, /type="email"/);
 });
+
+test("bouwt de Strapi-snapshot in zonder client-side CMS-request", async () => {
+  const home = await readPage();
+  const snapshot = JSON.parse(await readFile(new URL("../content/site.json", import.meta.url), "utf8"));
+  assert.ok(home.includes(snapshot.heroTitle));
+  assert.doesNotMatch(home, /localhost:1337|\/api\/site-setting/);
+});

@@ -12,7 +12,7 @@ copy .env.example .env.local
 npm run dev
 ```
 
-De website draait op `http://localhost:3000`.
+De website draait op `http://localhost:3000` en leest tijdens development rechtstreeks uit de lokale Strapi-server.
 
 ## Strapi CMS
 
@@ -22,15 +22,32 @@ copy .env.example .env
 npm run develop
 ```
 
-Open daarna `http://localhost:1337/admin` en maak het eerste beheerdersaccount. Het contenttype **Website-instellingen** en de begininhoud worden automatisch aangemaakt. De publieke website leest deze inhoud tijdens `npm run build`. Zonder bereikbare Strapi-installatie gebruikt de build veilige lokale standaardteksten.
+Open daarna `http://localhost:1337/admin` en maak het eerste beheerdersaccount. Het contenttype **Website-instellingen** en de begininhoud worden automatisch aangemaakt.
 
-Voor productie host je `cms/` op Strapi Cloud of een andere Node.js-host met persistente PostgreSQL-database. Zet vervolgens in GitHub onder **Settings → Secrets and variables → Actions**:
+Strapi blijft lokaal en is niet vanaf GitHub Pages bereikbaar. Daarom wordt alleen de publieke websitecontent vóór publicatie naar `content/site.json` geëxporteerd:
 
-- `STRAPI_URL`: de publieke URL van Strapi;
-- `STRAPI_API_TOKEN`: optioneel read-only token;
+```bash
+npm run content:sync
+```
+
+Deze snapshot bevat geen beheerdersaccount, wachtwoord of databasegegevens. De lokale SQLite-database in `cms/.tmp/` wordt niet naar GitHub gestuurd.
+
+Controleer vervolgens de productiebuild en push de gewijzigde snapshot:
+
+```bash
+npm run content:publish
+git add content/site.json
+git commit -m "Update website content"
+git push
+```
+
+GitHub Actions bouwt de statische website uitsluitend uit de gecontroleerde snapshot. Bezoekers maken daardoor geen request naar Strapi.
+
+Zet in GitHub onder **Settings → Secrets and variables → Actions** alleen:
+
 - `QUOTE_EMAIL`: het Gmail-adres voor offerteaanvragen.
 
-Publiceer na een CMS-wijziging opnieuw via **Actions → Deploy naar GitHub Pages → Run workflow**.
+Een push naar `main` publiceert de nieuwe statische versie automatisch.
 
 ## Offerteformulier
 

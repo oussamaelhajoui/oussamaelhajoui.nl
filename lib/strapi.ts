@@ -1,3 +1,5 @@
+import snapshot from "@/content/site.json";
+
 export type SiteContent = {
   heroTitle: string;
   heroText: string;
@@ -6,13 +8,7 @@ export type SiteContent = {
   stack: string[];
 };
 
-const fallbackContent: SiteContent = {
-  heroTitle: "Websites en web apps",
-  heroText: "Ik ben Oussama El Hajoui, software engineer. Ik ontwerp en bouw snelle digitale ervaringen met React, Angular, Java en C# — van eerste idee tot solide eindproduct.",
-  availability: "Beschikbaar voor nieuwe projecten",
-  quoteEmail: "oussamaelhajoui@gmail.com",
-  stack: ["React", "Angular", "Java", "C#"],
-};
+const fallbackContent: SiteContent = snapshot;
 
 export async function getSiteContent(): Promise<SiteContent> {
   const baseUrl = process.env.STRAPI_URL?.replace(/\/$/, "");
