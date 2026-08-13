@@ -81,8 +81,11 @@ textarea.quote-input { min-height: 150px; resize: vertical; }
 .skip-link:focus { top: 1rem; }
 .mobile-menu[open] summary { color: #075ac9; }
 .mobile-menu summary::-webkit-details-marker { display: none; }
+.consent-panel { position: fixed; z-index: 90; right: 1rem; bottom: 1rem; left: 1rem; display: grid; gap: 1.25rem; align-items: end; border: 1px solid rgb(7 23 47 / .16); border-radius: 1.5rem; background: rgb(255 255 255 / .98); padding: 1.25rem; box-shadow: 0 24px 80px rgb(7 23 47 / .2); }
+.consent-panel[hidden] { display: none; }
 
 @media (min-width: 1024px) {
+  .consent-panel { right: 2rem; bottom: 2rem; left: 2rem; grid-template-columns: 1fr auto; padding: 1.5rem 1.75rem; }
   .service-card { border-right: 1px solid rgb(7 23 47 / .15); border-bottom: 0; padding: 2.5rem; }
   .service-card:first-child { padding-left: 0; }
   .service-card:last-child { border-right: 0; padding-right: 0; }

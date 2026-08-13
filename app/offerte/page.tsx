@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 
 export default async function OffertePage() {
   const content = await getSiteContent();
-  const formAction = `https://formsubmit.co/${encodeURIComponent(process.env.QUOTE_EMAIL ?? content.quoteEmail)}`;
+  const quoteEmail = content.contact.email;
+  const formAction = `https://formsubmit.co/${encodeURIComponent(quoteEmail)}`;
 
   return (
     <main>
@@ -33,7 +34,7 @@ export default async function OffertePage() {
             </ol>
             <div className="mt-10 rounded-2xl bg-mist p-6">
               <p className="text-sm font-semibold text-navy">Liever direct mailen?</p>
-              <a className="mt-2 block break-all text-sm text-blue underline" href={`mailto:${content.quoteEmail}`}>{content.quoteEmail}</a>
+              <a className="mt-2 block break-all text-sm text-blue underline" href={`mailto:${quoteEmail}`}>{quoteEmail}</a>
             </div>
           </aside>
 

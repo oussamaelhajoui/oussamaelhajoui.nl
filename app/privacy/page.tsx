@@ -17,6 +17,7 @@ export default function PrivacyPage() {
             ["Welke gegevens", "Via het offerteformulier kunnen naam, e-mailadres, bedrijfsnaam en informatie over je project worden ontvangen."],
             ["Waarom", "Deze gegevens worden uitsluitend gebruikt om je aanvraag te beoordelen, contact met je op te nemen en eventueel een offerte op te stellen."],
             ["Formulierverwerking", "Het formulier gebruikt FormSubmit om je bericht per e-mail af te leveren. Verstuur geen gevoelige persoonsgegevens via het vrije tekstveld."],
+            ["Analyse en marketing", "Google-tags en pixels van Meta, TikTok of Snapchat worden alleen geladen nadat je hiervoor toestemming hebt gegeven. Je kunt je keuze via Cookievoorkeuren in de footer opnieuw openen."],
             ["Bewaartermijn", "Gegevens worden niet langer bewaard dan nodig is voor de aanvraag, samenwerking en wettelijke administratieverplichtingen."],
             ["Jouw rechten", "Je kunt vragen om inzage, correctie of verwijdering van je gegevens door contact op te nemen via het e-mailadres op de offertepagina."],
           ].map(([title, text]) => (

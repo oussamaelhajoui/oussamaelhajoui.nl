@@ -1,12 +1,15 @@
 import type { Core } from '@strapi/strapi';
 
 const defaultContent = {
+  siteName: 'Oussama El Hajoui',
+  seoTitle: 'Oussama El Hajoui — Software engineer',
+  seoDescription:
+    'Snelle websites en web apps met React, Angular, Java en C#. Rechtstreeks samenwerken met software engineer Oussama El Hajoui.',
   heroTitle: 'Websites en web apps',
   heroHighlight: 'die presteren.',
   heroText:
     'Ik ben Oussama El Hajoui, software engineer. Ik ontwerp en bouw snelle digitale ervaringen met React, Angular, Java en C# — van eerste idee tot solide eindproduct.',
   availability: 'Beschikbaar voor nieuwe projecten',
-  quoteEmail: 'oussamaelhajoui@gmail.com',
   stack: ['React', 'Angular', 'Java', 'C#'],
   homeServices: [
     {
@@ -208,13 +211,32 @@ const defaultContent = {
     buttonLabel: 'Start je aanvraag',
   },
   footerTagline: 'Websites en web apps die helder voelen, snel werken en klaar zijn om te groeien.',
+  contact: {
+    email: 'oussamaelhajoui@gmail.com',
+    phone: '',
+    location: 'Nederland',
+    whatsappUrl: '',
+    linkedinUrl: '',
+    githubUrl: '',
+  },
+  tracking: {
+    enabled: false,
+    consentTitle: 'Jouw privacy, jouw keuze',
+    consentText:
+      'Met jouw toestemming gebruiken we analyse- en marketingtags om de website en campagnes te verbeteren. Zonder toestemming blijven alleen noodzakelijke functies actief.',
+    googleTagManagerId: '',
+    googleTagId: '',
+    metaPixelId: '',
+    tiktokPixelId: '',
+    snapPixelId: '',
+  },
 };
 
 function isEmpty(value: unknown) {
   return value == null || value === '';
 }
 
-export default {
+const strapiConfig = {
   register() {},
 
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
@@ -248,16 +270,25 @@ export default {
     });
 
     if (publicRole) {
-      const action = 'api::site-setting.site-setting.find';
-      const permission = await strapi.db.query('plugin::users-permissions.permission').findOne({
-        where: { action, role: publicRole.id },
-      });
+      const actions = [
+        'api::site-setting.site-setting.find',
+        'api::project.project.find',
+        'api::project.project.findOne',
+      ];
 
-      if (!permission) {
-        await strapi.db.query('plugin::users-permissions.permission').create({
-          data: { action, role: publicRole.id },
+      for (const action of actions) {
+        const permission = await strapi.db.query('plugin::users-permissions.permission').findOne({
+          where: { action, role: publicRole.id },
         });
+
+        if (!permission) {
+          await strapi.db.query('plugin::users-permissions.permission').create({
+            data: { action, role: publicRole.id },
+          });
+        }
       }
     }
   },
 };
+
+export default strapiConfig;

@@ -1,9 +1,11 @@
 {
+  "siteName": "Oussama El Hajoui",
+  "seoTitle": "Oussama El Hajoui — Software engineer",
+  "seoDescription": "Snelle websites en web apps met React, Angular, Java en C#. Rechtstreeks samenwerken met software engineer Oussama El Hajoui.",
   "heroTitle": "Websites en web apps",
   "heroHighlight": "die presteren.",
   "heroText": "Ik ben Oussama El Hajoui, software engineer. Ik ontwerp en bouw snelle digitale ervaringen met React, Angular, Java en C# — van eerste idee tot solide eindproduct.",
   "availability": "Beschikbaar voor nieuwe projecten",
-  "quoteEmail": "oussamaelhajoui@gmail.com",
   "stack": [
     "React",
     "Angular",
@@ -244,5 +246,24 @@
     "text": "Vertel kort wat je wilt bouwen. Je ontvangt persoonlijk antwoord met de slimste volgende stap.",
     "buttonLabel": "Start je aanvraag"
   },
-  "footerTagline": "Websites en web apps die helder voelen, snel werken en klaar zijn om te groeien."
+  "footerTagline": "Websites en web apps die helder voelen, snel werken en klaar zijn om te groeien.",
+  "contact": {
+    "email": "oussamaelhajoui@gmail.com",
+    "phone": "",
+    "location": "Nederland",
+    "whatsappUrl": "",
+    "linkedinUrl": "",
+    "githubUrl": ""
+  },
+  "tracking": {
+    "enabled": false,
+    "consentTitle": "Jouw privacy, jouw keuze",
+    "consentText": "Met jouw toestemming gebruiken we analyse- en marketingtags om de website en campagnes te verbeteren. Zonder toestemming blijven alleen noodzakelijke functies actief.",
+    "googleTagManagerId": "",
+    "googleTagId": "",
+    "metaPixelId": "",
+    "tiktokPixelId": "",
+    "snapPixelId": ""
+  },
+  "projects": []
 }

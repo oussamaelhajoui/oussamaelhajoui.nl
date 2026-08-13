@@ -20,7 +20,7 @@ for (const file of await htmlFiles(outDir)) {
   const withoutRuntime = source
     .replace(/<link[^>]+(?:rel="preload"[^>]+as="script"|as="script"[^>]+rel="preload")[^>]*>/gi, "")
     .replace(/<script\b([^>]*)>[\s\S]*?<\/script>/gi, (tag, attributes) =>
-      /type="application\/ld\+json"/i.test(attributes) ? tag : "",
+      /type="application\/ld\+json"|data-keep-script/i.test(attributes) ? tag : "",
     );
   await writeFile(file, withoutRuntime);
 }

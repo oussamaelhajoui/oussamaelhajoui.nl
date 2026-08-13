@@ -14,13 +14,14 @@
     "content:sync": "node scripts/sync-strapi-content.mjs",
     "content:publish": "npm run content:sync && npm test",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern cms/dist --ignore-pattern cms/build --ignore-pattern cms/.cache --ignore-pattern cms/types/generated",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^16.3.0",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "sharp": "0.35.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.2.1",

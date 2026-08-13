@@ -1,5 +1,6 @@
 const nav = [
   ["Diensten", "/diensten/"],
+  ["Projecten", "/projecten/"],
   ["Werkwijze", "/werkwijze/"],
   ["Over mij", "/over/"],
 ];

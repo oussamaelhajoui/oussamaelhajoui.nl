@@ -5,7 +5,7 @@ import test from "node:test";
 const readPage = (route = "") => readFile(new URL(`../out/${route}index.html`, import.meta.url), "utf8");
 
 test("exporteert echte HTML voor alle hoofdpagina's", async () => {
-  const routes = ["", "diensten/", "werkwijze/", "over/", "offerte/", "privacy/", "bedankt/"];
+  const routes = ["", "diensten/", "projecten/", "werkwijze/", "over/", "offerte/", "privacy/", "bedankt/"];
   for (const route of routes) {
     const html = await readPage(route);
     assert.match(html, /<html lang="nl"/);
@@ -18,12 +18,36 @@ test("bevat SEO, toegankelijkheid en het offerteformulier", async () => {
   const home = await readPage();
   const quote = await readPage("offerte/");
   assert.match(home, /application\/ld\+json/);
-  assert.doesNotMatch(home, /<script[^>]+src=/i);
+  const externalScripts = home.match(/<script[^>]+src=/gi) ?? [];
+  const stylesheets = home.match(/<link[^>]+rel="stylesheet"/gi) ?? [];
+  assert.ok(externalScripts.length <= 1);
+  assert.ok(externalScripts.every((tag) => tag.includes("/tracking.js")));
+  assert.equal(stylesheets.length, 1);
   assert.match(home, /rel="canonical" href="https:\/\/oussamaelhajoui\.nl\/?"/);
   assert.match(home, /Ga naar de inhoud/);
   assert.match(quote, /action="https:\/\/formsubmit\.co\//);
   assert.match(quote, /name="privacy-akkoord"/);
   assert.match(quote, /type="email"/);
+});
+
+test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
+  const [robots, sitemap, llms, llmAlias, tracking] = await Promise.all([
+    readFile(new URL("../out/robots.txt", import.meta.url), "utf8"),
+    readFile(new URL("../out/sitemap.xml", import.meta.url), "utf8"),
+    readFile(new URL("../out/llms.txt", import.meta.url), "utf8"),
+    readFile(new URL("../out/llm.txt", import.meta.url), "utf8"),
+    readFile(new URL("../out/tracking.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(robots, /User-agent: \*/);
+  assert.match(robots, /Sitemap: https:\/\/oussamaelhajoui\.nl\/sitemap\.xml/);
+  assert.match(sitemap, /https:\/\/oussamaelhajoui\.nl\/projecten\//);
+  assert.match(llms, /^# Oussama El Hajoui/m);
+  assert.equal(llmAlias, llms);
+  assert.match(tracking, /googletagmanager\.com/);
+  assert.match(tracking, /connect\.facebook\.net/);
+  assert.match(tracking, /analytics\.tiktok\.com/);
+  assert.match(tracking, /sc-static\.net/);
+  assert.doesNotMatch(tracking, /eval\s*\(/);
 });
 
 test("bouwt de Strapi-snapshot in zonder client-side CMS-request", async () => {

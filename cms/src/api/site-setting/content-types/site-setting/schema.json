@@ -12,6 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "siteName": {
+      "type": "string",
+      "default": "Oussama El Hajoui"
+    },
+    "seoTitle": {
+      "type": "string"
+    },
+    "seoDescription": {
+      "type": "text"
+    },
     "heroTitle": {
       "type": "string",
       "required": true,
@@ -30,10 +40,6 @@
       "type": "string",
       "required": true,
       "default": "Beschikbaar voor nieuwe projecten"
-    },
-    "quoteEmail": {
-      "type": "email",
-      "required": true
     },
     "stack": {
       "type": "json",
@@ -112,6 +118,16 @@
     },
     "footerTagline": {
       "type": "text"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.contact-info"
+    },
+    "tracking": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.tracking-settings"
     }
   }
 }

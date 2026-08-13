@@ -443,6 +443,50 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiProjectProject extends Struct.CollectionTypeSchema {
+  collectionName: 'projects';
+  info: {
+    description: 'Portfolio-items voor de projectenpagina';
+    displayName: 'Project';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    client: Schema.Attribute.String;
+    coverImage: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    featured: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    > &
+      Schema.Attribute.Private;
+    projectUrl: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    services: Schema.Attribute.JSON;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<100>;
+    summary: Schema.Attribute.Text & Schema.Attribute.Required;
+    technologies: Schema.Attribute.JSON & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.String;
+  };
+}
+
 export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
   collectionName: 'site_settings';
   info: {
@@ -464,6 +508,7 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Beschikbaar voor nieuwe projecten'>;
     collaborationCards: Schema.Attribute.Component<'shared.summary-card', true>;
+    contact: Schema.Attribute.Component<'shared.contact-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -487,12 +532,16 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     processHero: Schema.Attribute.Component<'shared.page-hero', false>;
     processSteps: Schema.Attribute.Component<'shared.process-step', true>;
     publishedAt: Schema.Attribute.DateTime;
-    quoteEmail: Schema.Attribute.Email & Schema.Attribute.Required;
     quoteHero: Schema.Attribute.Component<'shared.page-hero', false>;
     quoteSteps: Schema.Attribute.Component<'shared.process-step', true>;
+    seoDescription: Schema.Attribute.Text;
+    seoTitle: Schema.Attribute.String;
     services: Schema.Attribute.Component<'shared.service', true>;
     servicesHero: Schema.Attribute.Component<'shared.page-hero', false>;
+    siteName: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Oussama El Hajoui'>;
     stack: Schema.Attribute.JSON & Schema.Attribute.Required;
+    tracking: Schema.Attribute.Component<'shared.tracking-settings', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1010,6 +1059,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::project.project': ApiProjectProject;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

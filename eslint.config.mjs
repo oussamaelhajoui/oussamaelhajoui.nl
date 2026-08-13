@@ -5,12 +5,24 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      // De productie-export gebruikt bewust gewone links en vooraf geoptimaliseerde afbeeldingen zonder Next-runtime.
+      "@next/next/no-html-link-for-pages": "off",
+      "@next/next/no-img-element": "off",
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
     "out/**",
     "build/**",
+    "cms/build/**",
+    "cms/dist/**",
+    "cms/.cache/**",
+    "cms/types/generated/**",
+    "cms/src/admin/*.example.*",
     "next-env.d.ts",
   ]),
 ]);

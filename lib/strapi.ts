@@ -37,12 +37,50 @@ export type CallToActionContent = {
   buttonLabel: string;
 };
 
+export type ContactContent = {
+  email: string;
+  phone?: string | null;
+  location?: string | null;
+  whatsappUrl?: string | null;
+  linkedinUrl?: string | null;
+  githubUrl?: string | null;
+};
+
+export type TrackingContent = {
+  enabled: boolean;
+  consentTitle: string;
+  consentText: string;
+  googleTagManagerId?: string | null;
+  googleTagId?: string | null;
+  metaPixelId?: string | null;
+  tiktokPixelId?: string | null;
+  snapPixelId?: string | null;
+};
+
+export type ProjectContent = {
+  title: string;
+  slug: string;
+  summary: string;
+  description?: string | null;
+  client?: string | null;
+  year?: string | null;
+  projectUrl?: string | null;
+  coverImageUrl?: string | null;
+  coverImageAlt?: string | null;
+  featured: boolean;
+  technologies: string[];
+  services?: string[] | null;
+  sortOrder: number;
+};
+
 export type SiteContent = {
+  siteName: string;
+  seoTitle: string;
+  seoDescription: string;
   heroTitle: string;
   heroHighlight: string;
   heroText: string;
   availability: string;
-  quoteEmail: string;
   stack: string[];
   homeServices: HomeServiceContent[];
   homePrinciples: SummaryCardContent[];
@@ -60,12 +98,46 @@ export type SiteContent = {
   quoteSteps: ProcessStepContent[];
   cta: CallToActionContent;
   footerTagline: string;
+  contact: ContactContent;
+  tracking: TrackingContent;
 };
 
-const fallbackContent = snapshot as SiteContent;
+type SiteSnapshot = SiteContent & { projects: ProjectContent[] };
+
+const fallbackSnapshot = snapshot as SiteSnapshot;
+const { projects: fallbackProjects, ...fallbackContent } = fallbackSnapshot;
 
 function hasContent(value: unknown) {
   return value != null && value !== "";
+}
+
+export async function getProjects(): Promise<ProjectContent[]> {
+  const baseUrl = process.env.STRAPI_URL?.replace(/\/$/, "");
+  if (!baseUrl) return fallbackProjects;
+
+  try {
+    const response = await fetch(`${baseUrl}/api/projects?populate=coverImage&sort=sortOrder:asc&pagination[pageSize]=100`, {
+      headers: process.env.STRAPI_API_TOKEN
+        ? { Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}` }
+        : undefined,
+    });
+    if (!response.ok) return fallbackProjects;
+
+    const payload = (await response.json()) as {
+      data?: Array<ProjectContent & { coverImage?: { url?: string; alternativeText?: string | null } | null }>;
+    };
+    if (!Array.isArray(payload.data)) return fallbackProjects;
+
+    return payload.data.map(({ coverImage, ...project }) => ({
+      ...project,
+      coverImageUrl: coverImage?.url
+        ? (coverImage.url.startsWith("http") ? coverImage.url : `${baseUrl}${coverImage.url}`)
+        : null,
+      coverImageAlt: coverImage?.alternativeText || project.title,
+    }));
+  } catch {
+    return fallbackProjects;
+  }
 }
 
 export async function getSiteContent(): Promise<SiteContent> {

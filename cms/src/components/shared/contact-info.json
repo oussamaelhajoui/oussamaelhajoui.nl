@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_contact_info",
+  "info": {
+    "displayName": "Contactgegevens",
+    "description": "Publieke contact- en profielgegevens"
+  },
+  "options": {},
+  "attributes": {
+    "email": { "type": "email", "required": true },
+    "phone": { "type": "string" },
+    "location": { "type": "string" },
+    "whatsappUrl": { "type": "string" },
+    "linkedinUrl": { "type": "string" },
+    "githubUrl": { "type": "string" }
+  }
+}

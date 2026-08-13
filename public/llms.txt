@@ -1,0 +1,21 @@
+# Oussama El Hajoui
+
+> Snelle websites en web apps met React, Angular, Java en C#. Rechtstreeks samenwerken met software engineer Oussama El Hajoui.
+
+Oussama El Hajoui is een Nederlandse software engineer die snelle websites en webapplicaties ontwerpt en ontwikkelt met React, Angular, Java, C#, Tailwind CSS en Strapi.
+
+## Belangrijkste pagina's
+
+- [Home](https://oussamaelhajoui.nl/): Overzicht van expertise, diensten en beschikbaarheid.
+- [Diensten](https://oussamaelhajoui.nl/diensten/): Websites, web apps, backends, API's en doorontwikkeling.
+- [Projecten](https://oussamaelhajoui.nl/projecten/): Gepubliceerde portfolio-projecten en gebruikte technologieën.
+- [Werkwijze](https://oussamaelhajoui.nl/werkwijze/): Het proces van kennismaking tot livegang.
+- [Over mij](https://oussamaelhajoui.nl/over/): Achtergrond, technische expertise en samenwerkingsstijl.
+- [Offerte aanvragen](https://oussamaelhajoui.nl/offerte/): Contact- en offerteformulier voor nieuwe projecten.
+- [Privacy](https://oussamaelhajoui.nl/privacy/): Informatie over gegevensverwerking en trackingtoestemming.
+
+
+## Contact
+
+- E-mail: oussamaelhajoui@gmail.com
+- Locatie: Nederland

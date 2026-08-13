@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_tracking_settings",
+  "info": {
+    "displayName": "Tracking en pixels",
+    "description": "Google- en advertentietags die alleen na toestemming worden geladen"
+  },
+  "options": {},
+  "attributes": {
+    "enabled": { "type": "boolean", "required": true, "default": false },
+    "consentTitle": { "type": "string", "required": true },
+    "consentText": { "type": "text", "required": true },
+    "googleTagManagerId": { "type": "string" },
+    "googleTagId": { "type": "string" },
+    "metaPixelId": { "type": "string" },
+    "tiktokPixelId": { "type": "string" },
+    "snapPixelId": { "type": "string" }
+  }
+}

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { CtaBand } from "@/components/CtaBand";
+import { ProjectCard } from "@/components/ProjectCard";
 import { ArrowLink, CodeMark, SectionIntro } from "@/components/Ui";
-import { getSiteContent } from "@/lib/strapi";
+import { getProjects, getSiteContent } from "@/lib/strapi";
 
 export const metadata: Metadata = {
   title: "Software engineer voor websites & web apps",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const content = await getSiteContent();
+  const [content, projects] = await Promise.all([getSiteContent(), getProjects()]);
+  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
 
   return (
     <main>
@@ -112,6 +114,24 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {featuredProjects.length > 0 && (
+        <section className="section-pad bg-mist">
+          <div className="site-shell">
+            <SectionIntro
+              kicker="Projecten"
+              title="Geselecteerd werk. Gericht op resultaat."
+              text="Een selectie van digitale producten waarin ontwerp, performance en degelijke techniek samenkomen."
+            />
+            <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {featuredProjects.map((project) => <ProjectCard project={project} key={project.slug} />)}
+            </div>
+            <div className="mt-10 flex justify-end">
+              <ArrowLink href="/projecten/">Alle projecten bekijken</ArrowLink>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section-pad bg-mist">
         <div className="site-shell grid gap-14 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
