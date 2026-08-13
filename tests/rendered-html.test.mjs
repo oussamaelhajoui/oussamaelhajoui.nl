@@ -240,7 +240,8 @@ test("ondersteunt de regionale commerciële zoekintentie en nieuwe expertises", 
   assert.match(textContent(webshopEindhoven), /Liquid maatwerk/i);
   assert.match(textContent(services), /AI-training & gastlessen/i);
   assert.match(textContent(services), /Security-assessments & pentests/i);
-  assert.match(textContent(services), /Nearshore & offshore/i);
+  assert.match(textContent(services), /nearshore[\s\S]*offshore/i);
+  assert.match(textContent(services), /farshore/i);
   assert.match(textContent(quote), /Webshop, Shopify of Liquid/i);
   assert.match(textContent(quote), /Security-assessment of pentest/i);
 });

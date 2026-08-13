@@ -257,12 +257,12 @@
       "number": "08",
       "title": "Technisch project- & teamleiderschap",
       "lead": "Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.",
-      "detail": "Ik kan projecten technisch leiden, stakeholders en engineers verbinden en nearshore- of offshoreteams begeleiden. Daarbij bewaak ik haalbaarheid, architectuur, kwaliteit, planning en een transparante voortgang.",
+      "detail": "Ik kan projecten technisch leiden, stakeholders en engineers verbinden en nearshore-, offshore- of farshoreteams begeleiden. Daarbij bewaak ik haalbaarheid, architectuur, kwaliteit, planning en een transparante voortgang.",
       "items": [
         "Technische projectleiding",
         "Teamcoördinatie",
         "Architectuurkeuzes",
-        "Nearshore & offshore",
+        "Nearshore, offshore & farshore",
         "Stakeholdercommunicatie"
       ],
       "slug": "technisch-projectleider",
@@ -273,7 +273,8 @@
         "software projectleider",
         "development team lead",
         "nearshore team aansturen",
-        "offshore team aansturen"
+        "offshore team aansturen",
+        "farshore team aansturen"
       ]
     }
   ],

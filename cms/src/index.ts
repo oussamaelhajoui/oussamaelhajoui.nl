@@ -1,7 +1,7 @@
 import type { Core } from '@strapi/strapi';
 
 const defaultContent = {
-  contentRevision: 3,
+  contentRevision: 4,
   siteName: 'Oussama El Hajoui',
   seoTitle: 'Oussama El Hajoui — Websites, webshops & software',
   seoDescription:
@@ -169,12 +169,12 @@ const defaultContent = {
       title: 'Technisch project- & teamleiderschap',
       slug: 'technisch-projectleider',
       seoKeyword: 'Technisch projectleider inhuren',
-      searchTerms: ['software projectleider', 'development team lead', 'nearshore team aansturen', 'offshore team aansturen'],
+      searchTerms: ['software projectleider', 'development team lead', 'nearshore team aansturen', 'offshore team aansturen', 'farshore team aansturen'],
       landingIntro: 'Technische leiding voor softwareprojecten en developmentteams, met grip op scope, architectuur, communicatie en levering.',
       isWebsiteService: false,
       lead: 'Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.',
-      detail: 'Ik kan projecten technisch leiden, stakeholders en engineers verbinden en nearshore- of offshoreteams begeleiden. Daarbij bewaak ik haalbaarheid, architectuur, kwaliteit, planning en een transparante voortgang.',
-      items: ['Technische projectleiding', 'Teamcoördinatie', 'Architectuurkeuzes', 'Nearshore & offshore', 'Stakeholdercommunicatie'],
+      detail: 'Ik kan projecten technisch leiden, stakeholders en engineers verbinden en nearshore-, offshore- of farshoreteams begeleiden. Daarbij bewaak ik haalbaarheid, architectuur, kwaliteit, planning en een transparante voortgang.',
+      items: ['Technische projectleiding', 'Teamcoördinatie', 'Architectuurkeuzes', 'Nearshore, offshore & farshore', 'Stakeholdercommunicatie'],
     },
   ],
   audienceCards: [

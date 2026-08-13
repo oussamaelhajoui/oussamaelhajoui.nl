@@ -44,7 +44,7 @@ Onder **Content Manager → Locaties** beheer je de lokale SEO-landingspagina's.
 
 De diensten staan als herhaalbaar onderdeel onder **Website-instellingen → Diensten**. Per dienst beheer je de slug, primaire SEO-zoekterm, aanvullende zoektermen, landingsintro en inhoud. Precies één dienst moet **Website-dienst** ingeschakeld hebben. Die krijgt URL's als `/website-laten-maken/eindhoven/`; overige diensten krijgen URL's als `/diensten/webshops/eindhoven/`.
 
-De standaarddiensten zijn websites en WordPress, Shopify- en WooCommerce-webshops met Liquid-maatwerk, web apps, backends/API's, doorontwikkeling, AI-training/gastlessen, security-assessments/pentests en technisch project- of teamleiderschap. De securitydienst is bedoeld voor geautoriseerde onderzoeken met afgesproken scope.
+De standaarddiensten zijn websites en WordPress, Shopify- en WooCommerce-webshops met Liquid-maatwerk, web apps, backends/API's, doorontwikkeling, AI-training/gastlessen, security-assessments/pentests en technisch project- of teamleiderschap voor onder meer nearshore-, offshore- en farshoreteams. De securitydienst is bedoeld voor geautoriseerde onderzoeken met afgesproken scope.
 
 Tracking staat standaard uit. Vul onder **Tracking en pixels** alleen de ID's in, zet **Enabled** aan en publiceer. Tags worden pas na toestemming geladen. Gebruik pixels óf beheer ze in Google Tag Manager om dubbele metingen te voorkomen.
 
