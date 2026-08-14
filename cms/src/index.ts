@@ -465,6 +465,16 @@ const defaultLocations = [
     sortOrder: 40,
   },
   {
+    name: 'Helmond',
+    slug: 'helmond',
+    province: 'Noord-Brabant',
+    intro: 'Voor ondernemers en organisaties in Helmond bouw ik snelle websites en digitale oplossingen die een professionele uitstraling combineren met een duidelijke route naar contact of verkoop.',
+    localText: 'Een sterke website voor de Helmondse markt moet direct vertrouwen wekken, uitstekend werken op mobiel en inhoudelijk aansluiten op de vragen van je doelgroep. Daarom verbind ik ontwerp, lokale vindbaarheid, performance en eenvoudig beheer vanaf het begin.',
+    regionalContext: 'Helmond heeft een brede mix van maakindustrie, zakelijke dienstverlening, retail en groeiende ondernemingen binnen de Brainport-regio. Ik help deze organisaties met korte lijnen, praktische technische keuzes en een digitale basis die kan meegroeien.',
+    active: true,
+    sortOrder: 45,
+  },
+  {
     name: 'Mierlo',
     slug: 'mierlo',
     province: 'Noord-Brabant',

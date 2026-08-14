@@ -40,7 +40,7 @@ Onder **Content Manager → Website-instellingen** beheer je onder andere:
 
 Onder **Content Manager → Projecten** voeg je portfolio-items toe. Alleen gepubliceerde projecten verschijnen op de projectenpagina; items met **Uitgelicht** verschijnen ook op de homepage.
 
-Onder **Content Manager → Locaties** beheer je de lokale SEO-landingspagina's. Iedere actieve, gepubliceerde locatie krijgt automatisch een pagina voor iedere geconfigureerde dienst. De beginset bevat Eindhoven, Nuenen, Geldrop, Best, Mierlo, Asten, Lierop en Son en Breugel. Vul per locatie een unieke intro, website-tekst en regionale context in; zo blijven de pagina's inhoudelijk relevant en worden het geen dunne kopieën.
+Onder **Content Manager → Locaties** beheer je de lokale SEO-landingspagina's. Iedere actieve, gepubliceerde locatie krijgt automatisch een pagina voor iedere geconfigureerde dienst. De beginset bevat Eindhoven, Nuenen, Geldrop, Best, Helmond, Mierlo, Asten, Lierop en Son en Breugel. Vul per locatie een unieke intro, website-tekst en regionale context in; zo blijven de pagina's inhoudelijk relevant en worden het geen dunne kopieën.
 
 De diensten staan als herhaalbaar onderdeel onder **Website-instellingen → Diensten**. Per dienst beheer je de slug, primaire SEO-zoekterm, aanvullende zoektermen, landingsintro en inhoud. Precies één dienst moet **Website-dienst** ingeschakeld hebben. Die krijgt URL's als `/website-laten-maken/eindhoven/`; overige diensten krijgen URL's als `/diensten/webshops/eindhoven/`.
 
@@ -76,6 +76,56 @@ GitHub Actions bouwt de statische website uitsluitend uit de gecontroleerde snap
 De synchronisatie werkt ook `robots.txt`, `sitemap.xml`, `llms.txt` en de compatibiliteitsalias `llm.txt` bij. Alle combinaties van gepubliceerde locaties en diensten worden daarbij statisch gegenereerd en in de sitemap opgenomen. Projectafbeeldingen worden als geoptimaliseerde WebP-bestanden naar de statische site gekopieerd.
 
 Een push naar `main` publiceert de nieuwe statische versie automatisch.
+
+## Zelf deployen
+
+De website wordt door GitHub Pages gepubliceerd zodra je een commit naar de branch `main` pusht. GitHub Actions voert de productiebuild uit en zet de map `out/` live. Je hoeft `out/` daarom niet te committen.
+
+### Scenario 1: je hebt broncode aangepast
+
+Voer vanuit de hoofdmap van de repository uit:
+
+```bash
+npm install
+npm run typecheck
+npm test
+git status
+git add app components lib public scripts tests package.json package-lock.json README.md
+git commit -m "Update website"
+git push origin main
+```
+
+Voeg bij `git add` alleen de bestanden toe die je werkelijk hebt aangepast. `npm test` maakt eerst een volledige statische productiebuild en controleert daarna onder meer alle pagina's, SEO-tags, canonicals, de sitemap en het aantal CSS- en JavaScriptbestanden. Na de push kun je de voortgang volgen via **GitHub → repository → Actions → Deploy naar GitHub Pages**. De nieuwe versie staat normaal binnen enkele minuten live.
+
+Heb je zowel code als Strapi-content gewijzigd, voer dan vóór `npm test` eerst de stappen uit het volgende scenario uit.
+
+### Scenario 2: je hebt alleen content in Strapi aangepast
+
+1. Start Strapi vanuit de hoofdmap in een aparte terminal:
+
+   ```bash
+   npm run cms:dev
+   ```
+
+2. Open `http://strapi.local:1337/admin` of `http://localhost:1337/admin`, pas de content aan en klik bij ieder aangepast item op **Publish**.
+3. Open een tweede terminal in de hoofdmap en voer uit:
+
+   ```bash
+   npm run content:publish
+   git status
+   git diff -- content/site.json public/sitemap.xml public/robots.txt public/llm.txt public/llms.txt
+   git add content/site.json public/sitemap.xml public/robots.txt public/llm.txt public/llms.txt public/projects
+   git commit -m "Update Strapi content"
+   git push origin main
+   ```
+
+`npm run content:publish` haalt de gepubliceerde content uit de lokale Strapi API, vernieuwt `content/site.json` en de discoverybestanden, kopieert eventuele projectafbeeldingen en voert daarna de volledige build en tests uit. GitHub Pages gebruikt vervolgens deze snapshot; de live website maakt geen request naar je lokale Strapi-installatie.
+
+Controleer vóór de commit altijd `git status`. Als een genoemde map niet bestaat of niet gewijzigd is, hoeft die niet te worden toegevoegd. Commit nooit `cms/.env`, `cms/.tmp/`, de SQLite-database of beheerderswachtwoorden.
+
+### Een bestaande versie opnieuw publiceren
+
+Als de juiste commit al op `main` staat, open je **GitHub → Actions → Deploy naar GitHub Pages → Run workflow**. Dit bouwt dezelfde opgeslagen broncode en Strapi-snapshot opnieuw. Niet-gecommitte wijzigingen uit je lokale Strapi worden daarmee niet meegenomen.
 
 ## Offerteformulier
 

@@ -48,7 +48,18 @@ test("bouwt het desktop- en mobiele dienstenmenu uit Strapi-content", async () =
   assert.match(home, /class="mobile-services/);
   for (const service of snapshot.services) {
     const href = `/online-diensten/#${service.slug}`;
-    assert.equal(home.split(href).length - 1, 2, `${service.title} ontbreekt in desktop of mobiel menu`);
+    assert.ok(home.split(href).length - 1 >= 2, `${service.title} ontbreekt in desktop of mobiel menu`);
+  }
+  assert.ok(home.split('href="/projecten/"').length - 1 >= 3, "Projecten ontbreekt in desktop-, mobiel- of footermenu");
+});
+
+test("exporteert een eigen 404 en herstelt discovery-URL's met trailing slash", async () => {
+  const notFound = await readFile(new URL("../out/404.html", import.meta.url), "utf8");
+  assert.match(notFound, /404 · Pagina niet gevonden/);
+  assert.match(notFound, /Deze route loopt/);
+  assert.match(notFound, /data-keep-script/);
+  for (const path of ["/sitemap.xml/", "/robots.txt/", "/llm.txt/", "/llms.txt/"]) {
+    assert.ok(notFound.includes(`'${path}'`), `404-fallback voor ${path} ontbreekt`);
   }
 });
 
@@ -90,7 +101,7 @@ test("bevat complete en unieke SEO-meta op iedere indexeerbare pagina", async ()
   const titles = new Set();
   const descriptions = new Set();
 
-  assert.equal(paths.length, 71);
+  assert.equal(paths.length, 85);
   for (const path of paths) {
     const route = path === "/" ? "" : path.replace(/^\//, "");
     const html = await readPage(route);
@@ -147,7 +158,7 @@ test("publiceert robots-, sitemap- en LLM-discoverybestanden", async () => {
 
 test("exporteert iedere Strapi-locatie voor iedere dienst als unieke landingspagina", async () => {
   const snapshot = await getSnapshot();
-  assert.equal(snapshot.locations.length, 8);
+  assert.equal(snapshot.locations.length, 9);
   assert.equal(snapshot.services.length, 8);
   assert.equal(snapshot.services.filter((service) => service.isWebsiteService).length, 1);
 
@@ -182,6 +193,21 @@ test("exporteert iedere Strapi-locatie voor iedere dienst als unieke landingspag
   }
 
   assert.equal(routes.size, snapshot.locations.length * snapshot.services.length);
+});
+
+test("publiceert Helmond als volledige Strapi-locatie", async () => {
+  const snapshot = await getSnapshot();
+  const helmond = snapshot.locations.find((location) => location.slug === "helmond");
+  assert.ok(helmond);
+  assert.equal(helmond.name, "Helmond");
+  assert.equal(helmond.province, "Noord-Brabant");
+  assert.ok(helmond.regionalContext.includes("Brainport"));
+  for (const service of snapshot.services) {
+    const route = getLandingRoute(service, helmond);
+    const html = await readPage(route);
+    assert.ok(html.includes("Helmond"));
+    assert.ok(html.includes(service.seoKeyword));
+  }
 });
 
 test("neemt alle locatie-landingspagina's op in sitemap en LLM-overzicht", async () => {
@@ -233,6 +259,10 @@ test("presenteert conceptprojecten transparant en zonder verzonnen klantclaims",
   for (const project of snapshot.projects) {
     assert.ok(projectsPage.includes(project.title));
     assert.ok(project.technologies.length >= 4);
+    const detail = await readPage(`projecten/${project.slug}/`);
+    assert.ok(detail.includes(project.title));
+    assert.match(detail, /Conceptcase · eigen demo/);
+    assert.ok(detail.includes(`https://oussamaelhajoui.nl/projecten/${project.slug}/`));
   }
 });
 

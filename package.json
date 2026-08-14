@@ -14,7 +14,7 @@
     "content:sync": "node scripts/sync-strapi-content.mjs",
     "content:publish": "npm run content:sync && npm test",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern cms/dist --ignore-pattern cms/build --ignore-pattern cms/.cache --ignore-pattern cms/types/generated",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern out --ignore-pattern work --ignore-pattern cms/dist --ignore-pattern cms/build --ignore-pattern cms/.cache --ignore-pattern cms/types/generated",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

@@ -2,11 +2,11 @@ import type { ProjectContent } from "@/lib/strapi";
 
 const visualThemes = ["blue", "cyan", "violet", "green", "amber", "rose"] as const;
 
-function ProjectVisual({ project }: { project: ProjectContent }) {
+export function ProjectVisual({ project, large = false }: { project: ProjectContent; large?: boolean }) {
   const themeIndex = Math.abs(Math.floor(project.sortOrder / 10) - 1) % visualThemes.length;
 
   return (
-    <div className={`project-visual project-visual-${visualThemes[themeIndex]}`} aria-hidden="true">
+    <div className={`project-visual project-visual-${visualThemes[themeIndex]}${large ? " project-visual-large" : ""}`} aria-hidden="true">
       <div className="project-visual-orbit" />
       <div className="project-window">
         <div className="project-window-bar">
@@ -62,11 +62,16 @@ export function ProjectCard({ project }: { project: ProjectContent }) {
             {project.technologies.map((technology) => <span className="chip" key={technology}>{technology}</span>)}
           </div>
         )}
-        {projectUrl && (
-          <a className="mt-8 inline-flex min-h-11 items-center font-semibold text-blue hover:underline" href={projectUrl} rel="noreferrer" target="_blank">
-            Bekijk project <span className="ml-2" aria-hidden="true">↗</span>
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
+          <a className="inline-flex min-h-11 items-center font-semibold text-blue hover:underline" href={`/projecten/${project.slug}/`}>
+            Bekijk case <span className="ml-2" aria-hidden="true">→</span>
           </a>
-        )}
+          {projectUrl && (
+            <a className="inline-flex min-h-11 items-center text-sm font-semibold text-ink-muted hover:text-blue hover:underline" href={projectUrl} rel="noreferrer" target="_blank">
+              Live project <span className="ml-2" aria-hidden="true">↗</span>
+            </a>
+          )}
+        </div>
       </div>
     </article>
   );

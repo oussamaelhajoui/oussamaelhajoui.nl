@@ -13,12 +13,12 @@ Oussama El Hajoui is een software engineer uit de regio Eindhoven voor websites,
 - [Over Oussama](https://oussamaelhajoui.nl/over-oussama/): Achtergrond, technische expertise en samenwerkingsstijl.
 - [Contact](https://oussamaelhajoui.nl/contact/): Contact- en offerteformulier voor nieuwe projecten.
 - [Privacy](https://oussamaelhajoui.nl/privacy/): Informatie over gegevensverwerking en trackingtoestemming.
-- [Kompas Advies — leadgerichte website](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een heldere corporate website die complexe dienstverlening terugbrengt tot duidelijke keuzes en gerichte aanvragen.
-- [Noorderlicht Living — Shopify-webshop](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een premium storefront met snelle productontdekking, sterke mobiele presentatie en een rustige route naar de checkout.
-- [RouteFlow — operations platform](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een overzichtelijk operationsdashboard waarmee planners capaciteit, uitzonderingen en voortgang vanuit één werkplek bewaken.
-- [Zorgpad — veilig cliëntportaal](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een toegankelijk cliëntportaal voor afspraken, documenten en veilige communicatie, ontworpen voor rust en duidelijkheid.
-- [AI Werkplaats — training platform](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een interactief leerplatform dat teams stap voor stap laat oefenen met generatieve AI, privacy en resultaatbeoordeling.
-- [SecureScope — assessment workspace](https://oussamaelhajoui.nl/projecten/): Conceptcase — Een beveiligde workspace die technische bevindingen vertaalt naar risico, bewijs en concrete herstelprioriteiten.
+- [Kompas Advies — leadgerichte website](https://oussamaelhajoui.nl/projecten/kompas-advies-website/): Conceptcase — Een heldere corporate website die complexe dienstverlening terugbrengt tot duidelijke keuzes en gerichte aanvragen.
+- [Noorderlicht Living — Shopify-webshop](https://oussamaelhajoui.nl/projecten/noorderlicht-shopify-webshop/): Conceptcase — Een premium storefront met snelle productontdekking, sterke mobiele presentatie en een rustige route naar de checkout.
+- [RouteFlow — operations platform](https://oussamaelhajoui.nl/projecten/routeflow-operations-platform/): Conceptcase — Een overzichtelijk operationsdashboard waarmee planners capaciteit, uitzonderingen en voortgang vanuit één werkplek bewaken.
+- [Zorgpad — veilig cliëntportaal](https://oussamaelhajoui.nl/projecten/zorgpad-clientportaal/): Conceptcase — Een toegankelijk cliëntportaal voor afspraken, documenten en veilige communicatie, ontworpen voor rust en duidelijkheid.
+- [AI Werkplaats — training platform](https://oussamaelhajoui.nl/projecten/ai-werkplaats-training-platform/): Conceptcase — Een interactief leerplatform dat teams stap voor stap laat oefenen met generatieve AI, privacy en resultaatbeoordeling.
+- [SecureScope — assessment workspace](https://oussamaelhajoui.nl/projecten/securescope-assessment-workspace/): Conceptcase — Een beveiligde workspace die technische bevindingen vertaalt naar risico, bewijs en concrete herstelprioriteiten.
 
 ## Diensten per locatie
 
@@ -54,6 +54,14 @@ Oussama El Hajoui is een software engineer uit de regio Eindhoven voor websites,
 - [AI training of gastles boeken Best](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/best/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
 - [Security assessment en pentest Best](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/best/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
 - [Technisch projectleider inhuren Best](https://oussamaelhajoui.nl/diensten/technisch-projectleider/best/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
+- [Website laten maken Helmond](https://oussamaelhajoui.nl/website-laten-maken/helmond/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
+- [Webshop laten maken Helmond](https://oussamaelhajoui.nl/diensten/webshops/helmond/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
+- [Web app laten maken Helmond](https://oussamaelhajoui.nl/diensten/web-apps/helmond/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.
+- [Backend en API laten ontwikkelen Helmond](https://oussamaelhajoui.nl/diensten/backend-apis/helmond/): Een stevige technische basis waarop je verder kunt bouwen.
+- [Software laten doorontwikkelen Helmond](https://oussamaelhajoui.nl/diensten/doorontwikkeling/helmond/): Bestaande software sneller, duidelijker en beter onderhoudbaar maken.
+- [AI training of gastles boeken Helmond](https://oussamaelhajoui.nl/diensten/ai-training-gastlessen/helmond/): Toegankelijke, actuele AI-kennis vertaald naar de dagelijkse praktijk.
+- [Security assessment en pentest Helmond](https://oussamaelhajoui.nl/diensten/security-assessments-pentests/helmond/): Praktisch inzicht in digitale risico’s, kwetsbaarheden en herstelprioriteiten.
+- [Technisch projectleider inhuren Helmond](https://oussamaelhajoui.nl/diensten/technisch-projectleider/helmond/): Rust, richting en technische kwaliteit voor lokale, nearshore en offshore teams.
 - [Website laten maken Mierlo](https://oussamaelhajoui.nl/website-laten-maken/mierlo/): Snel, vindbaar en ontworpen om vertrouwen om te zetten in aanvragen.
 - [Webshop laten maken Mierlo](https://oussamaelhajoui.nl/diensten/webshops/mierlo/): Shopify en WooCommerce met aandacht voor conversie, beheer en snelheid.
 - [Web app laten maken Mierlo](https://oussamaelhajoui.nl/diensten/web-apps/mierlo/): Gebruiksvriendelijke tools voor klanten, teams en complexe processen.

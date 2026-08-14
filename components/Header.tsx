@@ -2,6 +2,7 @@ import type { ServiceContent } from "@/lib/strapi";
 
 const primaryNav = [
   ["Home", "/"],
+  ["Projecten", "/projecten/"],
   ["Werkwijze", "/werkwijze/"],
   ["Over Oussama", "/over-oussama/"],
   ["Contact", "/contact/"],

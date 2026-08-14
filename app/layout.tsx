@@ -138,7 +138,13 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <a className="skip-link" href="#main-content">Ga naar de inhoud</a>
         <Header services={content.services} />
         <div id="main-content">{children}</div>
-        <Footer tagline={content.footerTagline} contact={content.contact} trackingEnabled={trackingEnabled} />
+        <Footer
+          tagline={content.footerTagline}
+          contact={content.contact}
+          trackingEnabled={trackingEnabled}
+          services={content.services}
+          locations={locations}
+        />
         <TrackingConsent tracking={content.tracking} />
         <script
           type="application/ld+json"
